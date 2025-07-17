@@ -1,0 +1,5 @@
+---
+- hosts: 127.0.0.1
+  tasks:
+  - name: Test jinja2 release notes template
+    template: src=release-template.md.j2 dest=test.conf
