@@ -1,2 +1,2 @@
-# automation-testing-changelog-release-notes
+# Automation tooling
 Testing automation tooling for changelogs and release notes
