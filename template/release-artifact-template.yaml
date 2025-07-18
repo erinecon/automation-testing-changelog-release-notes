@@ -2,7 +2,7 @@
 
 charm_name: ""
 release_condition: "" # Revision/Date
-changes:
+change:
   - author: ""
     title: ""
     type: ""
