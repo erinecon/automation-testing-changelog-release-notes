@@ -4,7 +4,7 @@ import yaml
 from jinja2 import Environment, FileSystemLoader
 
 def main():
-    """"Does stuff."""
+    """"Generates release notes based on artifacts."""
 
     # Jinja2 environment 
     env = Environment(loader=FileSystemLoader('template'))
