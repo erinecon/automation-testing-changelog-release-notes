@@ -33,13 +33,9 @@ The subsection below shows the pattern for each feature. Include links to the re
 {% for feat in changes %}
 {% if feat.type == "major" or feat.type == "minor" %}
 ### {{ feat.title }}
-
 {{ feat.description }}
-
 <Add more context and information about the entry>
-
-PR: {{ feat.url }}
-
+[Link to PR/commit]({{ feat.url }})
 {% endif %}
 {% endfor %}
 
@@ -48,7 +44,6 @@ PR: {{ feat.url }}
 <!--
 Add a bulleted list of bug fixes here, with links to the relevant PR/commit.
 -->
-
 {% for feat in changes %}
 {% if feat.type == "bugfix" %}
 * {{ feat.title }} ([PR]({{ feat.url }})): {{ feat.description }}
@@ -68,11 +63,8 @@ If there are no breaking changes, keep the section and write "No breaking change
 {% for feat in changes %}
 {% if feat.type == "breaking" %}
 ### {{ feat.title }}
-
 {{ feat.description }}
-
 <Add more context and information about the entry>
-
 PR: {{ feat.url }}
 
 {% endif %}
@@ -89,11 +81,8 @@ If there are no deprecated features, keep the section and write "No deprecated f
 {% for feat in changes %}
 {% if feat.type == "deprecated" %}
 ### {{ feat.title }}
-
 {{ feat.description }}
-
 <Add more context and information about the entry>
-
 PR: {{ feat.url }}
 
 {% endif %}
@@ -112,10 +101,8 @@ If there are no known issues, keep the section and write "No known issues".
 <!--
 List of contributors based on PRs/commits. Remove this section if there are no contributors in this release.
 -->
-
 {% for feat in changes %}
 * {{ feat.author }} 
-
 {% endfor %}
 
 

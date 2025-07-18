@@ -33,13 +33,9 @@ The subsection below shows the pattern for each feature. Include links to the re
 
 
 ### Second change
-
 Not as big of a deal
-
 <Add more context and information about the entry>
-
-PR: 
-
+[Link to PR/commit]()
 
 
 
@@ -48,7 +44,6 @@ PR:
 <!--
 Add a bulleted list of bug fixes here, with links to the relevant PR/commit.
 -->
-
 
 
 
@@ -92,9 +87,7 @@ If there are no known issues, keep the section and write "No known issues".
 List of contributors based on PRs/commits. Remove this section if there are no contributors in this release.
 -->
 
-
 * erinecon 
-
 
 
 
