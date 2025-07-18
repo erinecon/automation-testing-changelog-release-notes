@@ -2,7 +2,7 @@
 
 charm_name: ""
 release_condition: ""
-filename_tag: ""
+release_tag: ""
 changes:
   - title: ""
     author: ""

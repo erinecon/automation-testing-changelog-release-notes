@@ -2,7 +2,7 @@
 
 charm_name: "Fake charm"
 release_condition: "Revision 1"
-filename_tag: "rev1"
+release_tag: "rev1"
 changes:
   - title: "First change"
     author: "erinecon"

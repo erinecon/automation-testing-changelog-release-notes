@@ -13,7 +13,7 @@ charm_name: ""
 release_condition: ""
 
 # Machine-friendly identifier to distinguish individual release notes
-filename_tag: ""
+release_tag: ""
 
 # Details about the change in this artifact
 changes:
