@@ -29,7 +29,8 @@ def main():
         # Render template
         content = template.render(artifact_data)
 
-        output_path = os.path.join(output_dir, 'release-notes-test.md')
+        output_filename = "release-notes-" + artifact_data.get("filename_tag") + ".md"
+        output_path = os.path.join(output_dir, output_filename)
 
         with open(output_path, 'w') as f:
             f.write(content)

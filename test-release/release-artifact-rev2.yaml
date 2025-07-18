@@ -2,9 +2,10 @@
 
 charm_name: "Fake charm"
 release_condition: "Revision 2"
-change:
-  - author: "erinecon"
-    title: "Second change"
+filename_tag: "rev2"
+changes:
+  - title: "Second change"
+    author: "erinecon"
     type: "minor"
     description: "Not as big of a deal"
     url: ""

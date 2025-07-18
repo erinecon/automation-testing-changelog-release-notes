@@ -9,13 +9,16 @@ Current schema being tested:
 # Human-readable name of the charm
 charm_name: ""
 
-# Condition for release (revision number, date, etc.)
+# Human-readable condition for release (revision number, date, etc.)
 release_condition: ""
 
+# Machine-friendly identifier to distinguish individual release notes
+filename_tag: ""
+
 # Details about the change in this artifact
-change:
-  - author: "" # GitHub profile name
-    title: "" # What goes into the header. Should be short (TBD)
+changes:
+  - title: "" # What goes into the header. Should be short (TBD)
+    author: "" # GitHub profile name
     type: "" # major, minor, deprecated, bugfix, breaking
     description: "" # Brief description of the chage or fix.
     url: "" # Link to PR or commit
