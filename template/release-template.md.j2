@@ -47,7 +47,6 @@ Add a bulleted list of bug fixes here, with links to the relevant PR/commit.
 {% for feat in changes %}
 {% if feat.type == "bugfix" %}
 * {{ feat.title }} ([PR]({{ feat.url }})): {{ feat.description }}
-
 {% endif %}
 {% endfor %}
 

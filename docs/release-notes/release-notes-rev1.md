@@ -39,12 +39,37 @@ First test of the Jinja template
 
 
 
+### Initial Python code
+Added initial automation script.
+<Add more context and information about the entry>
+[Link to PR/commit](https://github.com/erinecon/automation-testing-changelog-release-notes/commit/15716db0e2c5f19124fd32f9a26d14126bbc9ca0)
+
+
+
+
+
+
+
+
+
 
 ## Bug fixes
 <!--
 Add a bulleted list of bug fixes here, with links to the relevant PR/commit.
 -->
 
+
+
+
+
+
+* Fixed feature tag grabbing ([PR](https://github.com/erinecon/automation-testing-changelog-release-notes/commit/50e8f331c1f776483d89d8c7d1e23706e40ba7f4)): Updated automation script to correctly grab the feature tag.
+
+
+
+
+
+* Fixed naming of output filename ([PR](https://github.com/erinecon/automation-testing-changelog-release-notes/commit/ac0e0db5a810321e64e5b719199b53a0376d08e0)): Fixed release tag name in automation script.
 
 
 
@@ -61,6 +86,20 @@ If there are no breaking changes, keep the section and write "No breaking change
 
 
 
+
+
+
+
+### Renamed feature tag
+Renamed feature_tag to release_tag
+<Add more context and information about the entry>
+PR: https://github.com/erinecon/automation-testing-changelog-release-notes/commit/85abffb0fc3ca2b6a33e62d28be62349f052b041
+
+
+
+
+
+
 ## Deprecated
 
 <!--
@@ -68,6 +107,14 @@ Use this section to highlight any deprecated features in this release.
 Include links to the relevant PR or commit.
 If there are no deprecated features, keep the section and write "No deprecated features".
 -->
+
+
+
+
+
+
+
+
 
 
 
@@ -86,6 +133,14 @@ If there are no known issues, keep the section and write "No known issues".
 <!--
 List of contributors based on PRs/commits. Remove this section if there are no contributors in this release.
 -->
+
+* erinecon 
+
+* erinecon 
+
+* erinecon 
+
+* erinecon 
 
 * erinecon 
 
