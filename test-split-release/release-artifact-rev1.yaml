@@ -1,0 +1,12 @@
+# --- Release notes artifact ----
+charm_name: "Fake charm"
+release_condition: "Revision 1"
+release_tag: "rev1-split"
+title: "First change"
+author: "erinecon"
+type: "major"
+description: "First test of the Jinja template"
+urls: 
+  - pr: "https://github.com/erinecon/automation-testing-changelog-release-notes/commit/cbd08aa188b113439c2907e6ae108e080399b3b0"
+internal: false
+highlight_material: false

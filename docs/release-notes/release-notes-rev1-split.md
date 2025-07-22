@@ -1,9 +1,9 @@
 <!-- Remember to update this file for your charm -- replace <charm-name> with the appropriate name,
 follow the release notes policy in the title, and fill in the relevant details. -->
 
-# {{ charm_name }} release notes – {{ release_condition }}
+# Fake charm release notes – Revision 1
 
-These release notes cover new features and changes in {{ charm_name }} for {{ release_condition }}.
+These release notes cover new features and changes in Fake charm for Revision 1.
 
 <!--
 Add an introduction summarizing the most significant features and impactful changes outlined in this file.
@@ -25,29 +25,16 @@ Use this section to highlight major and minor features that were added in this r
 The subsection below shows the pattern for each feature. Include links to the relevant PR or commit.
 -->
 
-{% if type == "major" or type == "minor" %}
-### {{ title }}
-{{ description }}
-<Add more context and information about the entry>
 
-Relevant links:
-* [PR]({{ urls.pr }})
-{% if urls.related_doc|length %}
-* [Related documentation]({{ urls.related_doc }})
-{% endif %}
-{% if urls.related_issue|length %}
-* [Related issue]({{ urls.related_issue }})
-{% endif %}
-{% endif %}
 
 
 ## Bug fixes
 <!--
 Add a bulleted list of bug fixes here, with links to the relevant PR/commit.
 -->
-{% if type == "bugfix" %}
-* {{ title }} ([PR]({{ urls.pr }})): {{ description }}
-{% endif %}
+
+* Fixed feature tag grabbing ([PR]()): Updated automation script to correctly grab the feature tag.
+
 
 ## Breaking changes
 
@@ -57,19 +44,7 @@ Include links to the relevant PR or commit.
 If there are no breaking changes, keep the section and write "No breaking changes".
 -->
 
-{% if type == "breaking" %}
-### {{ title }}
-{{ description }}
-<Add more context and information about the entry>
-Relevant links:
-* [PR]({{ urls.pr }})
-{% if urls.related_doc|length %}
-* [Related documentation]({{ urls.related_doc }})
-{% endif %}
-{% if urls.related_issue|length %}
-* [Related issue]({{ urls.related_issue }})
-{% endif %}
-{% endif %}
+
 
 ## Deprecated
 
@@ -79,19 +54,7 @@ Include links to the relevant PR or commit.
 If there are no deprecated features, keep the section and write "No deprecated features".
 -->
 
-{% if type == "deprecated" %}
-### {{ title }}
-{{ description }}
-<Add more context and information about the entry>
-Relevant links:
-* [PR]({{ urls.pr }})
-{% if urls.related_doc|length %}
-* [Related documentation]({{ urls.related_doc }})
-{% endif %}
-{% if urls.related_issue|length %}
-* [Related issue]({{ urls.related_issue }})
-{% endif %}
-{% endif %}
+
 
 ## Known issues
 <!--
@@ -106,7 +69,6 @@ If there are no known issues, keep the section and write "No known issues".
 <!--
 List of contributors based on PRs/commits. Remove this section if there are no contributors in this release.
 -->
-{{ author }}  
-
+erinecon  
 
 
