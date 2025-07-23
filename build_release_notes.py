@@ -8,9 +8,9 @@ def main():
 
     # Jinja2 environment 
     env = Environment(loader=FileSystemLoader('template'))
-    template = env.get_template('release-split-template.md.j2')
+    template = env.get_template('release-template.md.j2')
 
-    artifact_dir = 'test-split-release'
+    artifact_dir = 'test-release'
     output_dir = 'docs/release-notes'
 
     artifact_files = glob.glob(os.path.join(artifact_dir, '*.yaml'))

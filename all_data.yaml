@@ -1,0 +1,59 @@
+author: erinecon
+charm_name: Fake charm
+description: Fixed release tag name in automation script.
+highlight_material: false
+internal: false
+release_condition: Revision 1
+release_tag: rev1-split
+title: Fixed naming of output filename
+type: bugfix
+urls:
+- pr: https://github.com/erinecon/automation-testing-changelog-release-notes/commit/ac0e0db5a810321e64e5b719199b53a0376d08e0
+---
+author: erinecon
+charm_name: Fake charm
+description: First test of the Jinja template
+highlight_material: false
+internal: false
+release_condition: Revision 1
+release_tag: rev1-split
+title: First change
+type: major
+urls:
+- pr: https://github.com/erinecon/automation-testing-changelog-release-notes/commit/cbd08aa188b113439c2907e6ae108e080399b3b0
+---
+author: erinecon
+charm_name: Fake charm
+description: Added initial automation script.
+highlight_material: false
+internal: false
+release_condition: Revision 1
+release_tag: rev1-split
+title: Initial Python code
+type: major
+urls:
+- pr: https://github.com/erinecon/automation-testing-changelog-release-notes/commit/15716db0e2c5f19124fd32f9a26d14126bbc9ca0
+---
+author: erinecon
+charm_name: Fake charm
+description: Renamed feature_tag to release_tag
+highlight_material: false
+internal: false
+release_condition: Revision 1
+release_tag: rev1-split
+title: Renamed feature tag
+type: breaking
+urls:
+- pr: https://github.com/erinecon/automation-testing-changelog-release-notes/commit/85abffb0fc3ca2b6a33e62d28be62349f052b041
+---
+author: erinecon
+charm_name: Fake charm
+description: Updated automation script to correctly grab the feature tag.
+highlight_material: false
+internal: false
+release_condition: Revision 1
+release_tag: rev1-split
+title: Fixed feature tag grabbing
+type: bugfix
+urls:
+- pr: https://github.com/erinecon/automation-testing-changelog-release-notes/commit/50e8f331c1f776483d89d8c7d1e23706e40ba7f4
