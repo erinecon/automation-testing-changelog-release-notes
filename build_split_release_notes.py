@@ -31,6 +31,15 @@ def combine_data(file_paths, output_file):
 
     save_yaml(combined_data, output_file)
 
+def filter_by_tag(files, tag):
+    files_with_tag = []
+    for file in files:
+        data = load_yaml(file)
+        if tag == data.get('change')[0].get('release_tag'):
+            files_with_tag.append(file)
+
+    return files_with_tag
+
 def main():
     """"Generates release notes based on multiple artifacts."""
 
@@ -53,6 +62,10 @@ def main():
         return
     
     print(f"Found {len(artifact_files)} artifact(s) to process.")
+
+    # only keep artifact_files with the correct release_tag
+    artifact_files = filter_by_tag(artifact_files, release_tag)
+    print(f"Found {len(artifact_files)} artifact(s) with release tag {release_tag}.")
 
     # add common file to list of files
     artifact_files.append(common_file)
