@@ -31,21 +31,12 @@ The subsection below shows the pattern for each feature. Include links to the re
 -->
 
 
-
-
-
 ### Initial Python code
 Added initial automation script
 <Add more context and information about the entry>
 
 Relevant links:
 * [PR]()
-
-
-
-
-
-
 
 ### First change
 First test of the Jinja template
@@ -56,30 +47,13 @@ Relevant links:
 
 
 
-
-
-
-
-
 ## Bug fixes
 <!--
 Add a bulleted list of bug fixes here, with links to the relevant PR/commit.
 -->
 
-
 * Fixed naming of output filename ([PR]()): Fixed release tag name in automation script.
-
-
-
-
-
-
-
-
-
 * Fixed feature tag grabbing ([PR]()): Updated automation script to correctly grab the feature tag
-
-
 
 
 ## Breaking changes
@@ -90,26 +64,12 @@ Include links to the relevant PR or commit.
 If there are no breaking changes, keep the section and write "No breaking changes".
 -->
 
-
-
-
-
-
-
 ### Renamed feature tag
 Renamed feature_tag to release_tag
 <Add more context and information about the entry>
 
 Relevant links:
 * [PR]()
-
-
-
-
-
-
-
-
 
 ## Deprecated
 
@@ -118,18 +78,6 @@ Use this section to highlight any deprecated features in this release.
 Include links to the relevant PR or commit.
 If there are no deprecated features, keep the section and write "No deprecated features".
 -->
-
-
-
-
-
-
-
-
-
-
-
-
 
 ## Known issues
 <!--
@@ -144,16 +92,11 @@ If there are no known issues, keep the section and write "No known issues".
 <!--
 List of contributors based on PRs/commits. Remove this section if there are no contributors in this release.
 -->
-
-* erinecon 
-
-* erinecon 
-
-* erinecon 
-
-* erinecon 
-
-* erinecon 
+erinecon, 
+erinecon, 
+erinecon, 
+erinecon, 
+erinecon, 
 
 
 

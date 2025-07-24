@@ -36,7 +36,7 @@ def main():
 
     # Jinja2 environment 
     env = Environment(loader=FileSystemLoader('template'))
-    template = env.get_template('release-split-template-change.md.j2')
+    template = env.get_template('release-split-template.md.j2')
 
     artifact_dir = 'test-split-release'
     output_dir = 'docs/release-notes'
@@ -55,37 +55,8 @@ def main():
     artifact_files.append('common.yaml')
 
     combine_data(artifact_files, output_file)
-    gen = load_yaml(output_file)
-    content = template.render(gen)
-
-    ''' 
-    all_artifact_data = {}
-    all_artifact_data_array = []
-
-    for artifact in artifact_files:
-        print(f"Processing {artifact}...")
-        with open(artifact, 'r') as f:
-            artifact_data = yaml.safe_load(f)
-            release_tag_to_compare = artifact_data.get("release_tag")
-            # TODO: continue statement if release_tag_to_compare == release_tag
-            all_artifact_data.update(artifact_data)
-            all_artifact_data_array.append(artifact_data)
-
-    with open('common.yaml', 'r') as f:
-        common_data = yaml.safe_load(f)
-
-    # write all data to a single YAML
-    with open('all_data.yaml', 'w') as file:
-        yaml.dump_all(common_data, file)
-        yaml.dump_all(all_artifact_data_array, file) 
-
-    # Render template
-    gen = yaml.safe_load('all_data.yaml')
-
-    '''  
-    
-
-    # content = template.render(all_artifact_data)
+    combined_data = load_yaml(output_file)
+    content = template.render(combined_data)
 
     output_filename = "release-notes-" + release_tag + ".md"
     output_path = os.path.join(output_dir, output_filename)
