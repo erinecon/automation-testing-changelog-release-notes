@@ -1,0 +1,37 @@
+name: 'Create release notes'
+
+on:
+  workflow_dispatch:
+  # TODO: determine the actual point in our workflows where we trigger the action
+
+env:
+  RELEASE_TAG: rev1-split
+
+jobs:
+  job1:
+    name: 'Generate release notes'
+    runs-on: ubuntu-latest
+
+    steps:
+      # Checks out repo under $GITHUB_WORKSPACE
+      - uses: actions/checkout@v3
+      # Sets up Python
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+      - name: Install Python packages
+        run: |
+          pip install pyyaml
+          pip install jinja2
+      - name: Generate release notes
+        # TODO: Add RELEASE_TAG to the script
+        run: |
+          python3 build_split_release_notes.py
+      - name: Open pull request
+        uses: canonical/create-pull-request@main
+        with:
+          github-token: ${{ secrets.PAT }}
+          commit-message: Add release notes
+          branch-name: add-release-notes
+          title: Test pull request
+          body: Test pull request body

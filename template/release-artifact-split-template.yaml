@@ -1,0 +1,15 @@
+# --- Release notes artifact ----
+
+change:
+  - release_tag: ""
+    title: ""
+    author: ""
+    type: ""
+    description: ""
+    urls: 
+      - pr: ""
+        related_doc: ""
+        related_issue: ""
+    internal: false
+    highlight_material: false
+

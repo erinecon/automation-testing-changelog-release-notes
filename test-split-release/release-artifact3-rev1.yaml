@@ -1,0 +1,14 @@
+# --- Release notes artifact ----
+
+change:
+  - release_tag: rev1-split
+    title: Fixed feature tag grabbing
+    author: erinecon
+    type: bugfix
+    description: Updated automation script to correctly grab the feature tag
+    urls: 
+      - pr: https://github.com/erinecon/automation-testing-changelog-release-notes/commit/50e8f331c1f776483d89d8c7d1e23706e40ba7f4
+        related_doc: 
+        related_issue: 
+    internal: false
+    highlight_material: false

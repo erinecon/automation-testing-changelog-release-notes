@@ -1,0 +1,4 @@
+# --- Common information that applies to all releases ----
+
+charm_name: Fake
+release_condition: latest/stable
