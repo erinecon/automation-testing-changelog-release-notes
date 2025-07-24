@@ -34,7 +34,25 @@ The subsection below shows the pattern for each feature. Include links to the re
 
 
 
+### Initial Python code
+Added initial automation script
+<Add more context and information about the entry>
 
+Relevant links:
+* [PR]()
+
+
+
+
+
+
+
+### First change
+First test of the Jinja template
+<Add more context and information about the entry>
+
+Relevant links:
+* [PR]()
 
 
 
@@ -59,6 +77,8 @@ Add a bulleted list of bug fixes here, with links to the relevant PR/commit.
 
 
 
+* Fixed feature tag grabbing ([PR]()): Updated automation script to correctly grab the feature tag
+
 
 
 
@@ -73,6 +93,15 @@ If there are no breaking changes, keep the section and write "No breaking change
 
 
 
+
+
+
+### Renamed feature tag
+Renamed feature_tag to release_tag
+<Add more context and information about the entry>
+
+Relevant links:
+* [PR]()
 
 
 
@@ -118,13 +147,13 @@ List of contributors based on PRs/commits. Remove this section if there are no c
 
 * erinecon 
 
-*  
+* erinecon 
 
-*  
+* erinecon 
 
-*  
+* erinecon 
 
-*  
+* erinecon 
 
 
 

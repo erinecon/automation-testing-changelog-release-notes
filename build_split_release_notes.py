@@ -17,10 +17,13 @@ def combine_data(file_paths, output_file):
     for file_path in file_paths:
         data = load_yaml(file_path)
         for key, value in data.items():
-            print(value)
             if key in combined_data:
-                if isinstance(combined_data[key], list):
+                if isinstance(combined_data[key], list) and isinstance(value, list):
+                    combined_data[key].extend(value)
+                elif isinstance(combined_data[key], list):
                     combined_data[key].append(value)
+                elif isinstance(value, list):
+                    combined_data[key] = [combined_data[key]] + value
                 else:
                     combined_data[key] = [combined_data[key], value]
             else:
