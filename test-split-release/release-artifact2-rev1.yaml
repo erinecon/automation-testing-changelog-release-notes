@@ -1,8 +1,8 @@
 # --- Release notes artifact ----
 
-release_tag: rev1-split
 change:
-  - title: Initial Python code
+  - release_tag: rev1-split
+    title: Initial Python code
     author: erinecon
     type: major
     description: Added initial automation script

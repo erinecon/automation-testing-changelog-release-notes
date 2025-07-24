@@ -1,8 +1,8 @@
 # --- Release notes artifact ----
 
-release_tag: rev1-split
 change:
-  - title: First change
+  - release_tag: rev1-split
+    title: First change
     author: erinecon
     type: major
     description: First test of the Jinja template

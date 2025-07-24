@@ -1,8 +1,8 @@
 # --- Release notes artifact ----
 
-release_tag: ""
 change:
-  - title: ""
+  - release_tag: ""
+    title: ""
     author: ""
     type: ""
     description: ""

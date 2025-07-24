@@ -1,8 +1,8 @@
 # --- Release notes artifact ----
 
-release_tag: rev1-split
 change:
-  - title: Fixed feature tag grabbing
+  - release_tag: rev1-split
+    title: Fixed feature tag grabbing
     author: erinecon
     type: bugfix
     description: Updated automation script to correctly grab the feature tag

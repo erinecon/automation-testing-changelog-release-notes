@@ -3,6 +3,7 @@ change:
   description: Fixed release tag name in automation script.
   highlight_material: false
   internal: false
+  release_tag: rev1-split
   title: Fixed naming of output filename
   type: bugfix
   urls:
@@ -13,6 +14,7 @@ change:
   description: Added initial automation script
   highlight_material: false
   internal: false
+  release_tag: rev1-split
   title: Initial Python code
   type: major
   urls:
@@ -23,6 +25,7 @@ change:
   description: Renamed feature_tag to release_tag
   highlight_material: false
   internal: false
+  release_tag: rev1-split
   title: Renamed feature tag
   type: breaking
   urls:
@@ -33,6 +36,7 @@ change:
   description: First test of the Jinja template
   highlight_material: false
   internal: false
+  release_tag: rev1-split
   title: First change
   type: major
   urls:
@@ -43,6 +47,7 @@ change:
   description: Updated automation script to correctly grab the feature tag
   highlight_material: false
   internal: false
+  release_tag: rev1-split
   title: Fixed feature tag grabbing
   type: bugfix
   urls:
@@ -51,9 +56,3 @@ change:
     related_issue: null
 charm_name: Fake
 release_condition: latest/stable
-release_tag:
-- rev1-split
-- rev1-split
-- rev1-split
-- rev1-split
-- rev1-split

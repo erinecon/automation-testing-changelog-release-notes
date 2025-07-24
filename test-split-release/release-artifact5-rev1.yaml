@@ -1,8 +1,8 @@
 # --- Release notes artifact ----
 
-release_tag: rev1-split
 change:
-  - title: Fixed naming of output filename
+  - release_tag: rev1-split
+    title: Fixed naming of output filename
     author: erinecon
     type: bugfix
     description: Fixed release tag name in automation script.
