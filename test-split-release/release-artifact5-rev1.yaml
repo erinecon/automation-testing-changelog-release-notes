@@ -1,13 +1,14 @@
 # --- Release notes artifact ----
 
-charm_name: "Fake charm"
-release_condition: "Revision 1"
-release_tag: "rev1-split"
-title: "Fixed naming of output filename"
-author: "erinecon"
-type: "bugfix"
-description: "Fixed release tag name in automation script."
-urls:
-  - pr: "https://github.com/erinecon/automation-testing-changelog-release-notes/commit/ac0e0db5a810321e64e5b719199b53a0376d08e0"
-internal: false
-highlight_material: false
+release_tag: rev1-split
+change:
+  - title: Fixed naming of output filename
+    author: erinecon
+    type: bugfix
+    description: Fixed release tag name in automation script.
+    urls: 
+      - pr: https://github.com/erinecon/automation-testing-changelog-release-notes/commit/ac0e0db5a810321e64e5b719199b53a0376d08e0
+        related_doc: 
+        related_issue: 
+    internal: false
+    highlight_material: false
