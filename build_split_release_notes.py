@@ -34,15 +34,18 @@ def combine_data(file_paths, output_file):
 def main():
     """"Generates release notes based on multiple artifacts."""
 
-    # Jinja2 environment 
-    env = Environment(loader=FileSystemLoader('template'))
-    template = env.get_template('release-split-template.md.j2')
-
+    # define variables
     artifact_dir = 'test-split-release'
     output_dir = 'docs/release-notes'
     release_tag = 'rev1-split'
     output_file = 'all_data.yaml'
+    common_file = 'common.yaml'
 
+    # Jinja2 environment 
+    env = Environment(loader=FileSystemLoader('template'))
+    template = env.get_template('release-split-template.md.j2')
+
+    # find artifact files
     artifact_files = glob.glob(os.path.join(artifact_dir, '*.yaml'))
 
     if not artifact_files:
@@ -52,10 +55,13 @@ def main():
     print(f"Found {len(artifact_files)} artifact(s) to process.")
 
     # add common file to list of files
-    artifact_files.append('common.yaml')
+    artifact_files.append(common_file)
 
+    # generate combined data
     combine_data(artifact_files, output_file)
     combined_data = load_yaml(output_file)
+
+    # render template and save
     content = template.render(combined_data)
 
     output_filename = "release-notes-" + release_tag + ".md"
