@@ -45,14 +45,6 @@ Use this section to highlight major and minor features that were added in this r
 The subsection below shows the pattern for each feature. Include links to the relevant PR or commit.
 -->
 
-### Initial Python code
-Added initial automation script
-<Add more context and information about the entry>
-
-Relevant links:
-* [PR](https://github.com/erinecon/automation-testing-changelog-release-notes/commit/15716db0e2c5f19124fd32f9a26d14126bbc9ca0)
-
-
 ### First change
 First test of the Jinja template
 <Add more context and information about the entry>
@@ -61,13 +53,21 @@ Relevant links:
 * [PR](https://github.com/erinecon/automation-testing-changelog-release-notes/commit/cbd08aa188b113439c2907e6ae108e080399b3b0)
 
 
+### Initial Python code
+Added initial automation script
+<Add more context and information about the entry>
+
+Relevant links:
+* [PR](https://github.com/erinecon/automation-testing-changelog-release-notes/commit/15716db0e2c5f19124fd32f9a26d14126bbc9ca0)
+
+
 ## Bug fixes
 <!--
 Add a bulleted list of bug fixes here, with links to the relevant PR/commit.
 -->
 
-* Fixed naming of output filename ([PR](https://github.com/erinecon/automation-testing-changelog-release-notes/commit/ac0e0db5a810321e64e5b719199b53a0376d08e0)).
 * Fixed feature tag grabbing ([PR](https://github.com/erinecon/automation-testing-changelog-release-notes/commit/50e8f331c1f776483d89d8c7d1e23706e40ba7f4)).
+* Fixed naming of output filename ([PR](https://github.com/erinecon/automation-testing-changelog-release-notes/commit/ac0e0db5a810321e64e5b719199b53a0376d08e0)).
 
 
 ## Breaking changes
