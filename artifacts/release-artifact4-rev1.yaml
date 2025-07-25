@@ -1,8 +1,7 @@
 # --- Release notes artifact ----
 
 change:
-  - release_tag: rev1-split
-    title: Renamed feature tag
+  - title: Renamed feature tag
     author: erinecon
     type: breaking
     description: Renamed feature_tag to release_tag
@@ -11,4 +10,4 @@ change:
         related_doc: 
         related_issue: 
     internal: false
-    highlight_material: false
+    highlight: false

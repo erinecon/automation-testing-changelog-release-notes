@@ -64,8 +64,8 @@ def main():
     print(f"Found {len(artifact_files)} artifact(s) to process.")
 
     # only keep artifact_files with the correct release_tag
-    artifact_files = filter_by_tag(artifact_files, release_tag)
-    print(f"Found {len(artifact_files)} artifact(s) with release tag {release_tag}.")
+    # artifact_files = filter_by_tag(artifact_files, release_tag)
+    # print(f"Found {len(artifact_files)} artifact(s) with release tag {release_tag}.")
 
     # add common file to list of files
     artifact_files.append(common_file)
