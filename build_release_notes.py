@@ -47,7 +47,7 @@ def main():
     artifact_dir = 'artifacts'
     output_dir = 'docs/release-notes'
     release_tag = 'rev1-split'
-    output_file = 'all_data.yaml'
+    combined_file = 'all_data.yaml'
     common_file = 'common.yaml'
 
     # Jinja2 environment 
@@ -71,8 +71,8 @@ def main():
     artifact_files.append(common_file)
 
     # generate combined data
-    combine_data(artifact_files, output_file)
-    combined_data = load_yaml(output_file)
+    combine_data(artifact_files, combined_file)
+    combined_data = load_yaml(combined_file)
 
     # render template and save
     content = template.render(combined_data)
@@ -85,6 +85,8 @@ def main():
 
     print(f"Generated release notes at {output_path}")
 
+    # delete file with all artifacts
+    os.remove(combined_file)
 
 if __name__ == '__main__':
     main()
