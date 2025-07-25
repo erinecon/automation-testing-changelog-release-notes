@@ -33,5 +33,13 @@ jobs:
           github-token: ${{ secrets.PAT }}
           commit-message: Add release notes
           branch-name: add-release-notes
-          title: Test pull request
-          body: Test pull request body # TODO: Add a checklist specific to release notes
+          title: Add release notes
+          body: |
+            Add release notes.
+
+            ### Checklist
+            - [ ] The release condition was updated.
+            - [ ] The workload version and required software versions were updated.
+            - [ ] Additional context was added for the relevant updates.
+            - [ ] A list of known issues was added.
+            - [ ] These release notes were added to the [landing page](docs/release-notes/landing-page.md).
