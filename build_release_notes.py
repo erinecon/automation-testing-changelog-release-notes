@@ -44,7 +44,7 @@ def main():
     """"Generates release notes based on multiple artifacts."""
 
     # define variables
-    artifact_dir = 'test-split-release'
+    artifact_dir = 'artifacts'
     output_dir = 'docs/release-notes'
     release_tag = 'rev1-split'
     output_file = 'all_data.yaml'
@@ -52,7 +52,7 @@ def main():
 
     # Jinja2 environment 
     env = Environment(loader=FileSystemLoader('template'))
-    template = env.get_template('release-split-template.md.j2')
+    template = env.get_template('release-template.md.j2')
 
     # find artifact files
     artifact_files = glob.glob(os.path.join(artifact_dir, '*.yaml'))
