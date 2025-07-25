@@ -16,8 +16,7 @@ Individual artifact:
 ```yaml
 # The key holding the change
 change:
-  - release_tag: "" # Machine-friendly identifier to distinguish individual release notes
-    title: "" # What goes into the header. Should be short (TBD)
+  - title: "" # What goes into the header. Should be short (TBD)
     author: "" # GitHub profile name
     type: "" # major, minor, deprecated, bugfix, breaking
     description: "" # Brief description of the chage or fix.
@@ -26,7 +25,7 @@ change:
         related_doc: "" # optional link to related documentation
         related_issue: "" # optional link to related issue
     internal: false # boolean to determine if change is internal
-    highlight_material: false # boolean to determine if change is highlight material (i.e. should be featureed in initial paragraph)
+    highlight: false # boolean to determine if change is highlight material (i.e. should be featureed in initial paragraph)
 ```
 
 ## Release notes schema -- combined artifact approach
