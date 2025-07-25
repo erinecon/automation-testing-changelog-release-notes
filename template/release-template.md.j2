@@ -3,10 +3,13 @@ follow the release notes policy in the title, and fill in the relevant details. 
 
 # {{ charm_name }} release notes – {{ release_condition }}
 
-These release notes cover new features and changes in {{ charm_name }}.
+These release notes cover new features and changes in {{ charm_name }} for <release condition here>.
 
 <!--
-Add an introduction summarizing the most significant features and impactful changes outlined in this file.
+Add an introduction summarizing the most significant features and impactful changes
+outlined in this file. Organize this content in bulleted lists of "Main features"
+and "Main bug fixes", using past tense to describe each of the items
+(for instance, "Added support for X relation").
 -->
 
 See our [Release policy and schedule](docs/release-notes/landing-page.md).
@@ -14,15 +17,27 @@ See our [Release policy and schedule](docs/release-notes/landing-page.md).
 ## Requirements and compatibility
 
 <!--
-Add information about the requirements for this charm, for instance, a minimum Python version. 
-Specify the workload version; link to the workload’s release notes if available.
-If the user will need any specific upgrade instructions for this release, include those instructions here.
+Specify the workload version; link to the workload's release notes if available.
 
-Add the following sentence, updating the RAM requirements appropriately:
+Add information about the requirements for this charm in the table
+below, for instance, a minimum Juju version. 
 
-For development and testing purposes, a machine or VM with a minimum of <#GB> RAM is required.
-In production, at least <#GB> RAM is recommended per instance.
+If the user will need any specific upgrade instructions for this
+release, include those instructions here.
+
 -->
+
+The charm operates <workload name with version>.
+
+The table below shows the required or supported versions of the software necessary to operate the charm.
+
+| Software                | Required version |
+|-------------------------|------------------|
+| Juju                    | XXXX             |
+| Terraform               | XXXX             |
+| Terraform Juju provider | XXXX             |
+| Ubuntu                  | XXXX             |
+| XXXX                    | XXXX             |
 
 ## Updates
 <!--
