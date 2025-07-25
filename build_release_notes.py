@@ -31,6 +31,7 @@ def combine_data(file_paths, output_file):
 
     save_yaml(combined_data, output_file)
 
+# DEPRECATED TAG; NEED TO REFACTOR
 def filter_by_tag(files, tag):
     files_with_tag = []
     for file in files:
@@ -64,6 +65,7 @@ def main():
     print(f"Found {len(artifact_files)} artifact(s) to process.")
 
     # only keep artifact_files with the correct release_tag
+    # WARNING: Uses deprecated value
     # artifact_files = filter_by_tag(artifact_files, release_tag)
     # print(f"Found {len(artifact_files)} artifact(s) with release tag {release_tag}.")
 
