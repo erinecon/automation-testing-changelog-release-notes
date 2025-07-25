@@ -1,11 +1,15 @@
 # --- Release notes artifact ----
 
-charm_name: ""
-release_condition: ""
-release_tag: ""
-changes:
-  - title: ""
+change:
+  - release_tag: ""
+    title: ""
     author: ""
     type: ""
     description: ""
-    url: ""
+    urls: 
+      - pr: ""
+        related_doc: ""
+        related_issue: ""
+    internal: false
+    highlight_material: false
+

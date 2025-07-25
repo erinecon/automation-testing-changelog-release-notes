@@ -34,4 +34,4 @@ jobs:
           commit-message: Add release notes
           branch-name: add-release-notes
           title: Test pull request
-          body: Test pull request body
+          body: Test pull request body # TODO: Add a checklist specific to release notes
