@@ -3,10 +3,13 @@ follow the release notes policy in the title, and fill in the relevant details. 
 
 # Fake release notes – latest/stable
 
-These release notes cover new features and changes in Fake.
+These release notes cover new features and changes in Fake for <release condition here>.
 
 <!--
-Add an introduction summarizing the most significant features and impactful changes outlined in this file.
+Add an introduction summarizing the most significant features and impactful changes
+outlined in this file. Organize this content in bulleted lists of "Main features"
+and "Main bug fixes", using past tense to describe each of the items
+(for instance, "Added support for X relation").
 -->
 
 See our [Release policy and schedule](docs/release-notes/landing-page.md).
@@ -14,15 +17,27 @@ See our [Release policy and schedule](docs/release-notes/landing-page.md).
 ## Requirements and compatibility
 
 <!--
-Add information about the requirements for this charm, for instance, a minimum Python version. 
-Specify the workload version; link to the workload’s release notes if available.
-If the user will need any specific upgrade instructions for this release, include those instructions here.
+Specify the workload version; link to the workload's release notes if available.
 
-Add the following sentence, updating the RAM requirements appropriately:
+Add information about the requirements for this charm in the table
+below, for instance, a minimum Juju version. 
 
-For development and testing purposes, a machine or VM with a minimum of <#GB> RAM is required.
-In production, at least <#GB> RAM is recommended per instance.
+If the user will need any specific upgrade instructions for this
+release, include those instructions here.
+
 -->
+
+The charm operates <workload name with version>.
+
+The table below shows the required or supported versions of the software necessary to operate the charm.
+
+| Software                | Required version |
+|-------------------------|------------------|
+| Juju                    | XXXX             |
+| Terraform               | XXXX             |
+| Terraform Juju provider | XXXX             |
+| Ubuntu                  | XXXX             |
+| XXXX                    | XXXX             |
 
 ## Updates
 <!--
@@ -30,21 +45,20 @@ Use this section to highlight major and minor features that were added in this r
 The subsection below shows the pattern for each feature. Include links to the relevant PR or commit.
 -->
 
-
 ### Initial Python code
 Added initial automation script
 <Add more context and information about the entry>
 
 Relevant links:
-* [PR]()
+* [PR](https://github.com/erinecon/automation-testing-changelog-release-notes/commit/15716db0e2c5f19124fd32f9a26d14126bbc9ca0)
+
 
 ### First change
 First test of the Jinja template
 <Add more context and information about the entry>
 
 Relevant links:
-* [PR]()
-
+* [PR](https://github.com/erinecon/automation-testing-changelog-release-notes/commit/cbd08aa188b113439c2907e6ae108e080399b3b0)
 
 
 ## Bug fixes
@@ -52,8 +66,8 @@ Relevant links:
 Add a bulleted list of bug fixes here, with links to the relevant PR/commit.
 -->
 
-* Fixed naming of output filename ([PR]()): Fixed release tag name in automation script.
-* Fixed feature tag grabbing ([PR]()): Updated automation script to correctly grab the feature tag
+* Fixed naming of output filename ([PR](https://github.com/erinecon/automation-testing-changelog-release-notes/commit/ac0e0db5a810321e64e5b719199b53a0376d08e0)).
+* Fixed feature tag grabbing ([PR](https://github.com/erinecon/automation-testing-changelog-release-notes/commit/50e8f331c1f776483d89d8c7d1e23706e40ba7f4)).
 
 
 ## Breaking changes
@@ -69,7 +83,8 @@ Renamed feature_tag to release_tag
 <Add more context and information about the entry>
 
 Relevant links:
-* [PR]()
+* [PR](https://github.com/erinecon/automation-testing-changelog-release-notes/commit/85abffb0fc3ca2b6a33e62d28be62349f052b041)
+
 
 ## Deprecated
 
@@ -92,11 +107,11 @@ If there are no known issues, keep the section and write "No known issues".
 <!--
 List of contributors based on PRs/commits. Remove this section if there are no contributors in this release.
 -->
-erinecon, 
-erinecon, 
-erinecon, 
-erinecon, 
-erinecon, 
+erinecon,
+erinecon,
+erinecon,
+erinecon,
+erinecon,
 
 
 

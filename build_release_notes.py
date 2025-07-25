@@ -69,6 +69,10 @@ def main():
     # artifact_files = filter_by_tag(artifact_files, release_tag)
     # print(f"Found {len(artifact_files)} artifact(s) with release tag {release_tag}.")
 
+    for file in artifact_files:
+        data = load_yaml(file)
+        print(data.get('change')[0].get('urls')[0].get('pr'))
+
     # add common file to list of files
     artifact_files.append(common_file)
 

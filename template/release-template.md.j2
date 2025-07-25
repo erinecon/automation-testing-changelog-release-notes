@@ -47,20 +47,24 @@ The subsection below shows the pattern for each feature. Include links to the re
 
 {% for feat in change -%}
 {%- if feat.type == "major" or feat.type == "minor" -%}
+
 ### {{ feat.title }}
 {{ feat.description }}
 <Add more context and information about the entry>
 
 Relevant links:
-* [PR]({{ feat.urls.pr }})
-{%- if feat.urls.related_doc|length -%}
-* [Related documentation]({{ feat.urls.related_doc }})
-{%- endif -%}
-{%- if feat.urls.related_issue|length -%}
-* [Related issue]({{ feat.urls.related_issue }})
-{%- endif %}
-{%- endif %}
+{% for url in feat.urls -%}
+* [PR]({{ url.pr }})
+{% if url.related_doc is not none -%}
+* [Related documentation]({{ url.related_doc }})
+{% endif -%}
+{% if url.related_issue is not none -%}
+* [Related issue]({{ url.related_issue }})
+{% endif -%}
 {% endfor %}
+
+{% endif -%}
+{% endfor -%}
 
 ## Bug fixes
 <!--
@@ -69,7 +73,9 @@ Add a bulleted list of bug fixes here, with links to the relevant PR/commit.
 
 {% for feat in change -%}
 {%- if feat.type == "bugfix" -%}
-* {{ feat.title }} ([PR]({{ feat.urls.pr }})): {{ feat.description }}
+{% for url in feat.urls -%}
+* {{ feat.title }} ([PR]({{ url.pr }})).
+{% endfor -%}
 {% endif -%}
 {% endfor %}
 
@@ -88,15 +94,18 @@ If there are no breaking changes, keep the section and write "No breaking change
 <Add more context and information about the entry>
 
 Relevant links:
-* [PR]({{ feat.urls.pr }})
-{%- if feat.urls.related_doc|length %}
-* [Related documentation]({{ feat.urls.related_doc }})
-{% endif %}
-{%- if feat.urls.related_issue|length %}
-* [Related issue]({{ feat.urls.related_issue }})
+{% for url in feat.urls -%}
+* [PR]({{ url.pr }})
+{% if url.related_doc is not none -%}
+* [Related documentation]({{ url.related_doc }})
 {% endif -%}
+{% if url.related_issue is not none -%}
+* [Related issue]({{ url.related_issue }})
 {% endif -%}
 {% endfor %}
+
+{% endif -%}
+{% endfor -%}
 
 ## Deprecated
 
@@ -113,13 +122,16 @@ If there are no deprecated features, keep the section and write "No deprecated f
 <Add more context and information about the entry>
 
 Relevant links:
-* [PR]({{ feat.urls.pr }})
-{% if feat.urls.related_doc|length %}
-* [Related documentation]({{ feat.urls.related_doc }})
-{% endif %}
-{% if feat.urls.related_issue|length %}
-* [Related issue]({{ feat.urls.related_issue }})
+{% for url in feat.urls -%}
+* [PR]({{ url.pr }})
+{% if url.related_doc is not none -%}
+* [Related documentation]({{ url.related_doc }})
 {% endif -%}
+{% if url.related_issue is not none -%}
+* [Related issue]({{ url.related_issue }})
+{% endif -%}
+{% endfor %}
+
 {% endif -%}
 {% endfor -%}
 
@@ -137,7 +149,7 @@ If there are no known issues, keep the section and write "No known issues".
 List of contributors based on PRs/commits. Remove this section if there are no contributors in this release.
 -->
 {% for feat in change -%}
-{{ feat.author }}, 
+{{ feat.author }},
 {% endfor %}
 
 
