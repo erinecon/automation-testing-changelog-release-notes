@@ -14,6 +14,9 @@ release_condition: ""
 
 Individual artifact:
 ```yaml
+# Version of the artifact schema
+version_schema: 1
+
 # The key holding the change
 change:
   - title: "" # What goes into the header. Should be short (TBD)
