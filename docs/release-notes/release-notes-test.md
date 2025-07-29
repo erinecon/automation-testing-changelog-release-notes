@@ -55,6 +55,8 @@ Use this section to highlight major and minor features that were added in this r
 The subsection below shows the pattern for each feature. Include links to the relevant PR or commit.
 -->
 
+The following major and minor features were added in this release.
+
 
 
 ### Added initial Python script
@@ -101,6 +103,8 @@ Include links to the relevant PR or commit.
 If there are no breaking changes, keep the section and write "No breaking changes".
 -->
 
+The following backwards-incompatible changes are included in this release.
+
 
 
 
@@ -123,6 +127,8 @@ Include links to the relevant PR or commit.
 If there are no deprecated features, keep the section and write "No deprecated features".
 -->
 
+The following features have been deprecated.
+
 ### Removed release_tag from the artifact
 Removed `release_tag` from the artifact.
 <Add more context and information about the entry>
@@ -142,14 +148,20 @@ If there are no known issues, keep the section and write "No known issues".
 <!--
 List of contributors based on PRs/commits. Remove this section if there are no contributors in this release.
 -->
-erinecon,
-erinecon,
-erinecon,
-erinecon,
-erinecon,
-erinecon,
-erinecon,
-erinecon,
 
 
+[erinecon](https://github.com/erinecon),
 
+[erinecon](https://github.com/erinecon),
+
+[erinecon](https://github.com/erinecon),
+
+[erinecon](https://github.com/erinecon),
+
+[erinecon](https://github.com/erinecon),
+
+[erinecon](https://github.com/erinecon),
+
+[erinecon](https://github.com/erinecon),
+
+[erinecon](https://github.com/erinecon),

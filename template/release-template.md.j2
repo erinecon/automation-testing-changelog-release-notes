@@ -59,6 +59,8 @@ Use this section to highlight major and minor features that were added in this r
 The subsection below shows the pattern for each feature. Include links to the relevant PR or commit.
 -->
 
+The following major and minor features were added in this release.
+
 {% for feat in change -%}
 {%- if feat.type == "major" or feat.type == "minor" -%}
 
@@ -97,6 +99,8 @@ Include links to the relevant PR or commit.
 If there are no breaking changes, keep the section and write "No breaking changes".
 -->
 
+The following backwards-incompatible changes are included in this release.
+
 {% for feat in change -%}
 {%- if feat.type == "breaking" -%}
 ### {{ feat.title }}
@@ -122,6 +126,8 @@ Use this section to highlight any deprecated features in this release.
 Include links to the relevant PR or commit.
 If there are no deprecated features, keep the section and write "No deprecated features".
 -->
+
+The following features have been deprecated.
 
 {% for feat in change -%}
 {%- if feat.type == "deprecated" -%}
@@ -154,9 +160,11 @@ If there are no known issues, keep the section and write "No known issues".
 <!--
 List of contributors based on PRs/commits. Remove this section if there are no contributors in this release.
 -->
+{% set authors_in_list = ['something'] %}
 {% for feat in change -%}
-{{ feat.author }},
-{% endfor %}
-
-
-
+{% set author_value = feat.author|string %}
+{% if author_value not in authors_in_list -%}
+[{{ feat.author }}](https://github.com/{{ feat.author }}),
+{% set authors_in_list = authors_in_list + [author_value] -%}
+{% endif -%}
+{% endfor -%}
