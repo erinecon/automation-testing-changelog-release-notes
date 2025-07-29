@@ -10,4 +10,4 @@ change:
       related_doc: 
       related_issue: 
     internal: false
-    highlight: false
+    highlight: true

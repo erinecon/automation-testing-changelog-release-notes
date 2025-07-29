@@ -12,6 +12,13 @@ and "Main bug fixes", using past tense to describe each of the items
 (for instance, "Added support for X relation").
 -->
 
+Main features:
+{% for feat in change -%}
+{%- if feat.highlight == "true" and (feat.type == "major" or feat.type == "minor") -%}
+* {{ feat.title }}.
+{% endif %}
+{% endfor -%}
+
 See our [Release policy and schedule](docs/release-notes/landing-page.md).
 
 ## Requirements and compatibility

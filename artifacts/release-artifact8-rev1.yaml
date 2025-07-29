@@ -1,0 +1,15 @@
+# --- Release notes artifact ----
+version_schema: 1
+change:
+  - title: Added GitHub action
+    author: erinecon
+    type: major
+    description: |
+      Now there's a GitHub action that uses the script and automatically opens a pull
+      request with the rendered release notes!
+    urls: 
+      pr: https://github.com/erinecon/automation-testing-changelog-release-notes/pull/2
+      related_doc: 
+      related_issue: 
+    internal: false
+    highlight: true

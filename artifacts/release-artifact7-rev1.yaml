@@ -1,0 +1,13 @@
+# --- Release notes artifact ----
+version_schema: 1
+change:
+  - title: Fixed a bug where the URLs weren't rendered correctly in the template
+    author: erinecon
+    type: bugfix
+    description: Fixed a bug where the URLs weren't rendered correctly in the template.
+    urls: 
+      pr: https://github.com/erinecon/automation-testing-changelog-release-notes/commit/3de734d1f1993d1f56d4f6c6cf9c8f74a6b08ec8
+      related_doc: 
+      related_issue: 
+    internal: false
+    highlight: false
