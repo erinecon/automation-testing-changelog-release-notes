@@ -1,13 +1,13 @@
 # --- Release notes artifact ----
 version_schema: 1
 change:
-  - title: Fixed naming of output filename
+  - title: Fixed a bug where the automation script incorrectly named the output file
     author: erinecon
     type: bugfix
-    description: Fixed release tag name in automation script.
+    description: Fixed a bug where the automation script incorrectly named the output file.
     urls: 
       pr: https://github.com/erinecon/automation-testing-changelog-release-notes/commit/ac0e0db5a810321e64e5b719199b53a0376d08e0
       related_doc: 
       related_issue: 
     internal: false
-    highlight: false
+    highlight: true

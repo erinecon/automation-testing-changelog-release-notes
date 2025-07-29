@@ -1,9 +1,9 @@
 <!-- Remember to update this file for your charm -- replace <charm-name> with the appropriate name,
 follow the release notes policy in the title, and fill in the relevant details. -->
 
-# {{ charm_name }} release notes – {{ release_condition }}
+# Fake release notes – latest/stable
 
-These release notes cover new features and changes in {{ charm_name }} for <release condition here>.
+These release notes cover new features and changes in Fake for <release condition here>.
 
 <!--
 Add an introduction summarizing the most significant features and impactful changes
@@ -13,18 +13,14 @@ and "Main bug fixes", using past tense to describe each of the items
 -->
 
 Main features:
-{% for feat in change -%}
-{%- if feat.highlight == true and (feat.type == "major" or feat.type == "minor") -%}
-* {{ feat.title }}.
-{% endif -%}
-{% endfor %}
+* Added initial Python script.
+* Added GitHub action.
+
 
 Main bug fixes:
-{% for feat in change -%}
-{%- if feat.highlight == true and feat.type == "bugfix" -%}
-* {{ feat.title }}.
-{% endif -%}
-{% endfor %}
+* Fixed a bug where the automation script incorrectly named the output file.
+* Fixed a bug where the URLs weren't rendered correctly in the template.
+
 
 See our [Release policy and schedule](docs/release-notes/landing-page.md).
 
@@ -59,35 +55,43 @@ Use this section to highlight major and minor features that were added in this r
 The subsection below shows the pattern for each feature. Include links to the relevant PR or commit.
 -->
 
-{% for feat in change -%}
-{%- if feat.type == "major" or feat.type == "minor" -%}
 
-### {{ feat.title }}
-{{ feat.description }}
+
+### Added initial Python script
+Added initial automation script to build release notes.
 <Add more context and information about the entry>
 
 Relevant links:
-* [PR]({{ feat.urls.pr }})
-{% if feat.urls.related_doc is not none -%}
-* [Related documentation]({{ feat.urls.related_doc }})
-{% endif -%}
-{% if feat.urls.related_issue is not none -%}
-* [Related issue]({{ feat.urls.related_issue }})
-{% endif -%}
+* [PR](https://github.com/erinecon/automation-testing-changelog-release-notes/commit/15716db0e2c5f19124fd32f9a26d14126bbc9ca0)
 
-{% endif %}
-{% endfor -%}
+
+
+### Added initial Jinja template.
+First test of the Jinja template.
+<Add more context and information about the entry>
+
+Relevant links:
+* [PR](https://github.com/erinecon/automation-testing-changelog-release-notes/commit/cbd08aa188b113439c2907e6ae108e080399b3b0)
+
+
+### Added GitHub action
+Now there's a GitHub action that uses the script and automatically opens a pull
+request with the rendered release notes!
+
+<Add more context and information about the entry>
+
+Relevant links:
+* [PR](https://github.com/erinecon/automation-testing-changelog-release-notes/pull/2)
 
 ## Bug fixes
 <!--
 Add a bulleted list of bug fixes here, with links to the relevant PR/commit.
 -->
 
-{% for feat in change -%}
-{%- if feat.type == "bugfix" -%}
-* {{ feat.title }} ([PR]({{ feat.urls.pr }})).
-{% endif -%}
-{% endfor %}
+* Fixed a bug where the automation script incorrectly named the output file ([PR](https://github.com/erinecon/automation-testing-changelog-release-notes/commit/ac0e0db5a810321e64e5b719199b53a0376d08e0)).
+* Fixed a bug where the URLs weren't rendered correctly in the template ([PR](https://github.com/erinecon/automation-testing-changelog-release-notes/commit/3de734d1f1993d1f56d4f6c6cf9c8f74a6b08ec8)).
+* Fixed feature tag grabbing ([PR](https://github.com/erinecon/automation-testing-changelog-release-notes/commit/50e8f331c1f776483d89d8c7d1e23706e40ba7f4)).
+
 
 ## Breaking changes
 
@@ -97,23 +101,19 @@ Include links to the relevant PR or commit.
 If there are no breaking changes, keep the section and write "No breaking changes".
 -->
 
-{% for feat in change -%}
-{%- if feat.type == "breaking" -%}
-### {{ feat.title }}
-{{ feat.description }}
+
+
+
+
+### Renamed feature tag
+Renamed `feature_tag` to `release_tag`.
 <Add more context and information about the entry>
 
 Relevant links:
-* [PR]({{ feat.urls.pr }})
-{% if feat.urls.related_doc is not none -%}
-* [Related documentation]({{ feat.urls.related_doc }})
-{% endif -%}
-{% if feat.urls.related_issue is not none -%}
-* [Related issue]({{ feat.urls.related_issue }})
-{% endif -%}
+* [PR](https://github.com/erinecon/automation-testing-changelog-release-notes/commit/85abffb0fc3ca2b6a33e62d28be62349f052b041)
 
-{% endif %}
-{% endfor -%}
+
+
 
 ## Deprecated
 
@@ -123,24 +123,12 @@ Include links to the relevant PR or commit.
 If there are no deprecated features, keep the section and write "No deprecated features".
 -->
 
-{% for feat in change -%}
-{%- if feat.type == "deprecated" -%}
-### {{ feat.title }}
-{{ feat.description }}
+### Removed release_tag from the artifact
+Removed `release_tag` from the artifact.
 <Add more context and information about the entry>
 
 Relevant links:
-* [PR]({{ feat.urls.pr }})
-{% if feat.urls.related_doc is not none -%}
-* [Related documentation]({{ feat.urls.related_doc }})
-{% endif -%}
-{% if feat.urls.related_issue is not none -%}
-* [Related issue]({{ feat.urls.related_issue }})
-{% endif -%}
-
-{% endif -%}
-{% endfor -%}
-
+* [PR](https://github.com/erinecon/automation-testing-changelog-release-notes/commit/99bf42cbb0f819860e3ca9e8c1058ea006c753da)
 ## Known issues
 <!--
 Add a bulleted list with links to unresolved issues – the most important/pressing ones,
@@ -154,9 +142,14 @@ If there are no known issues, keep the section and write "No known issues".
 <!--
 List of contributors based on PRs/commits. Remove this section if there are no contributors in this release.
 -->
-{% for feat in change -%}
-{{ feat.author }},
-{% endfor %}
+erinecon,
+erinecon,
+erinecon,
+erinecon,
+erinecon,
+erinecon,
+erinecon,
+erinecon,
 
 
 
