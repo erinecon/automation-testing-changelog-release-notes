@@ -24,9 +24,9 @@ change:
     type: "" # major, minor, deprecated, bugfix, breaking
     description: "" # Brief description of the chage or fix.
     urls: # Relevant URLs
-      - pr: "" # mandatory link to PR
-        related_doc: "" # optional link to related documentation
-        related_issue: "" # optional link to related issue
+      pr: "" # mandatory link to PR
+      related_doc: "" # optional link to related documentation
+      related_issue: "" # optional link to related issue
     internal: false # boolean to determine if change is internal
     highlight: false # boolean to determine if change is highlight material (i.e. should be featureed in initial paragraph)
 ```
