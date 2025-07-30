@@ -13,13 +13,13 @@ and "Main bug fixes", using past tense to describe each of the items
 -->
 
 Main features:
-* Added initial Python script.
 * Added GitHub action.
+* Added initial Python script.
 
 
 Main bug fixes:
-* Fixed a bug where the automation script incorrectly named the output file.
 * Fixed a bug where the URLs weren't rendered correctly in the template.
+* Fixed a bug where the automation script incorrectly named the output file.
 
 
 See our [Release policy and schedule](docs/release-notes/landing-page.md).
@@ -57,14 +57,6 @@ The subsection below shows the pattern for each feature. Include links to the re
 
 The following major and minor features were added in this release.
 
-### Added initial Python script
-Added initial automation script to build release notes.
-<Add more context and information about the entry>
-
-Relevant links:
-* [PR](https://github.com/erinecon/automation-testing-changelog-release-notes/commit/15716db0e2c5f19124fd32f9a26d14126bbc9ca0)
-
-
 ### Added initial Jinja template.
 First test of the Jinja template.
 <Add more context and information about the entry>
@@ -83,6 +75,14 @@ Relevant links:
 * [PR](https://github.com/erinecon/automation-testing-changelog-release-notes/pull/2)
 
 
+### Added initial Python script
+Added initial automation script to build release notes.
+<Add more context and information about the entry>
+
+Relevant links:
+* [PR](https://github.com/erinecon/automation-testing-changelog-release-notes/commit/15716db0e2c5f19124fd32f9a26d14126bbc9ca0)
+
+
 
 
 ## Bug fixes
@@ -90,9 +90,9 @@ Relevant links:
 Add a bulleted list of bug fixes here, with links to the relevant PR/commit.
 -->
 
-* Fixed a bug where the automation script incorrectly named the output file ([PR](https://github.com/erinecon/automation-testing-changelog-release-notes/commit/ac0e0db5a810321e64e5b719199b53a0376d08e0)).
 * Fixed a bug where the URLs weren't rendered correctly in the template ([PR](https://github.com/erinecon/automation-testing-changelog-release-notes/commit/3de734d1f1993d1f56d4f6c6cf9c8f74a6b08ec8)).
 * Fixed feature tag grabbing ([PR](https://github.com/erinecon/automation-testing-changelog-release-notes/commit/50e8f331c1f776483d89d8c7d1e23706e40ba7f4)).
+* Fixed a bug where the automation script incorrectly named the output file ([PR](https://github.com/erinecon/automation-testing-changelog-release-notes/commit/ac0e0db5a810321e64e5b719199b53a0376d08e0)).
 
 
 ## Breaking changes
