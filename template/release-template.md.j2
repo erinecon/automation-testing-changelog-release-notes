@@ -61,7 +61,7 @@ The subsection below shows the pattern for each feature. Include links to the re
 
 The following major and minor features were added in this release.
 
-{% for feat in change -%}
+{% for feat in change %}
 {%- if feat.type == "major" or feat.type == "minor" -%}
 
 ### {{ feat.title }}
@@ -75,10 +75,10 @@ Relevant links:
 {% endif -%}
 {% if feat.urls.related_issue is not none -%}
 * [Related issue]({{ feat.urls.related_issue }})
-{% endif -%}
-
 {% endif %}
-{% endfor -%}
+
+{% endif -%}
+{% endfor %}
 
 ## Bug fixes
 <!--
@@ -116,8 +116,8 @@ Relevant links:
 * [Related issue]({{ feat.urls.related_issue }})
 {% endif -%}
 
-{% endif %}
-{% endfor -%}
+{% endif -%}
+{% endfor %}
 
 ## Deprecated
 
@@ -145,7 +145,7 @@ Relevant links:
 {% endif -%}
 
 {% endif -%}
-{% endfor -%}
+{% endfor %}
 
 ## Known issues
 <!--
@@ -160,11 +160,12 @@ If there are no known issues, keep the section and write "No known issues".
 <!--
 List of contributors based on PRs/commits. Remove this section if there are no contributors in this release.
 -->
-{% set authors_in_list = ['something'] %}
+{% set authors_in_list = [] -%}
 {% for feat in change -%}
-{% set author_value = feat.author|string %}
+{% set author_value = '['+feat.author+'](https://github.com/'+feat.author+')' -%}
 {% if author_value not in authors_in_list -%}
-[{{ feat.author }}](https://github.com/{{ feat.author }}),
-{% set authors_in_list = authors_in_list + [author_value] -%}
+{{ authors_in_list.append(author_value) or "" }}
 {% endif -%}
 {% endfor -%}
+
+{{ authors_in_list|join(', ') }}

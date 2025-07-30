@@ -57,15 +57,12 @@ The subsection below shows the pattern for each feature. Include links to the re
 
 The following major and minor features were added in this release.
 
-
-
 ### Added initial Python script
 Added initial automation script to build release notes.
 <Add more context and information about the entry>
 
 Relevant links:
 * [PR](https://github.com/erinecon/automation-testing-changelog-release-notes/commit/15716db0e2c5f19124fd32f9a26d14126bbc9ca0)
-
 
 
 ### Added initial Jinja template.
@@ -84,6 +81,9 @@ request with the rendered release notes!
 
 Relevant links:
 * [PR](https://github.com/erinecon/automation-testing-changelog-release-notes/pull/2)
+
+
+
 
 ## Bug fixes
 <!--
@@ -105,18 +105,12 @@ If there are no breaking changes, keep the section and write "No breaking change
 
 The following backwards-incompatible changes are included in this release.
 
-
-
-
-
 ### Renamed feature tag
 Renamed `feature_tag` to `release_tag`.
 <Add more context and information about the entry>
 
 Relevant links:
 * [PR](https://github.com/erinecon/automation-testing-changelog-release-notes/commit/85abffb0fc3ca2b6a33e62d28be62349f052b041)
-
-
 
 
 ## Deprecated
@@ -135,6 +129,8 @@ Removed `release_tag` from the artifact.
 
 Relevant links:
 * [PR](https://github.com/erinecon/automation-testing-changelog-release-notes/commit/99bf42cbb0f819860e3ca9e8c1058ea006c753da)
+
+
 ## Known issues
 <!--
 Add a bulleted list with links to unresolved issues – the most important/pressing ones,
@@ -149,19 +145,4 @@ If there are no known issues, keep the section and write "No known issues".
 List of contributors based on PRs/commits. Remove this section if there are no contributors in this release.
 -->
 
-
-[erinecon](https://github.com/erinecon),
-
-[erinecon](https://github.com/erinecon),
-
-[erinecon](https://github.com/erinecon),
-
-[erinecon](https://github.com/erinecon),
-
-[erinecon](https://github.com/erinecon),
-
-[erinecon](https://github.com/erinecon),
-
-[erinecon](https://github.com/erinecon),
-
-[erinecon](https://github.com/erinecon),
+[erinecon](https://github.com/erinecon)
