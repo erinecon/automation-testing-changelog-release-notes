@@ -1,10 +1,10 @@
 # --- Release notes artifact ----
 version_schema: 1
 change:
-  - title: First change
+  - title: Added initial Jinja template.
     author: erinecon
     type: major
-    description: First test of the Jinja template
+    description: First test of the Jinja template.
     urls: 
       pr: https://github.com/erinecon/automation-testing-changelog-release-notes/commit/cbd08aa188b113439c2907e6ae108e080399b3b0
       related_doc: 

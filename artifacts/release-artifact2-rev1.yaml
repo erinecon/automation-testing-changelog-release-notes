@@ -1,13 +1,13 @@
 # --- Release notes artifact ----
 version_schema: 1
 change:
-  - title: Initial Python code
+  - title: Added initial Python script
     author: erinecon
     type: major
-    description: Added initial automation script
+    description: Added initial automation script to build release notes.
     urls: 
       pr: https://github.com/erinecon/automation-testing-changelog-release-notes/commit/15716db0e2c5f19124fd32f9a26d14126bbc9ca0
       related_doc: 
       related_issue: 
     internal: false
-    highlight: false
+    highlight: true
