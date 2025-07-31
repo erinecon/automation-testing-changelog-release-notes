@@ -27,7 +27,7 @@ change:
       pr: "" # mandatory link to PR
       related_doc: "" # optional link to related documentation
       related_issue: "" # optional link to related issue
-    internal: false # boolean to determine if change is internal
+    visibility: public # determines whether artifact should be rendered. Accepted values: public, internal, hidden
     highlight: false # boolean to determine if change is highlight material (i.e. should be featureed in initial paragraph)
 ```
 

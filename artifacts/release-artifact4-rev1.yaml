@@ -9,5 +9,5 @@ change:
       pr: https://github.com/erinecon/automation-testing-changelog-release-notes/commit/85abffb0fc3ca2b6a33e62d28be62349f052b041
       related_doc: 
       related_issue: 
-    internal: false
+    internal: public
     highlight: false

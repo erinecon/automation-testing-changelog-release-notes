@@ -11,5 +11,5 @@ change:
       pr: https://github.com/erinecon/automation-testing-changelog-release-notes/pull/2
       related_doc: 
       related_issue: 
-    internal: false
+    internal: public
     highlight: true
