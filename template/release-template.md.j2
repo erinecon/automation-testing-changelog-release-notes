@@ -14,7 +14,7 @@ and "Main bug fixes", using past tense to describe each of the items
 
 Main features:
 {% for feat in change -%}
-{%- if feat.highlight == true and (feat.type == "major" or feat.type == "minor") -%}
+{%- if feat.highlight == true and (feat.visibility == "public" or (feat.visibility == "internal" and show_internal == true) ) and (feat.type == "major" or feat.type == "minor") -%}
 * {{ feat.title }}.
 {% endif -%}
 {% endfor %}
