@@ -10,6 +10,9 @@ charm_name: ""
 
 # Human-readable condition for the release (revision number, date, etc.)
 release_condition: ""
+
+# Boolean to determine whether internal changes will be rendered
+show_internal: false
 ```
 
 Individual artifact:
