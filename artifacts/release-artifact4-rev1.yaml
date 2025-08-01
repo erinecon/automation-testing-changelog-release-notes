@@ -1,6 +1,6 @@
 # --- Release notes artifact ----
 version_schema: 1
-change:
+changes:
   - title: Renamed feature tag
     author: erinecon
     type: breaking

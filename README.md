@@ -20,8 +20,8 @@ Individual artifact:
 # Version of the artifact schema
 version_schema: 1
 
-# The key holding the change
-change:
+# The key holding the change(s)
+changes:
   - title: "" # What goes into the header. Should be short (TBD)
     author: "" # GitHub profile name
     type: "" # major, minor, deprecated, bugfix, breaking

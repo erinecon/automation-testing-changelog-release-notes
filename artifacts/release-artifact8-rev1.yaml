@@ -1,6 +1,6 @@
 # --- Release notes artifact ----
 version_schema: 1
-change:
+changes:
   - title: Added GitHub action
     author: erinecon
     type: major
