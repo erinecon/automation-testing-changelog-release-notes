@@ -1,6 +1,6 @@
 # --- Release notes artifact ----
 version_schema: 1
-change:
+changes:
   - title: Fixed feature tag grabbing
     author: erinecon
     type: bugfix

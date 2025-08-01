@@ -1,6 +1,6 @@
 # --- Release notes artifact ----
 version_schema: 1
-change:
+changes:
   - title: Fixed a bug where the automation script incorrectly named the output file
     author: erinecon
     type: bugfix

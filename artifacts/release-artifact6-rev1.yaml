@@ -1,6 +1,6 @@
 # --- Release notes artifact ----
 version_schema: 1
-change:
+changes:
   - title: Removed release_tag from the artifact
     author: erinecon
     type: deprecated

@@ -1,6 +1,6 @@
 # --- Release notes artifact ----
 version_schema: 1
-change:
+changes:
   - title: Fixed a bug where the URLs weren't rendered correctly in the template
     author: erinecon
     type: bugfix
