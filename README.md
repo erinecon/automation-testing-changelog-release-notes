@@ -15,7 +15,7 @@ release_condition: ""
 show_internal: false
 
 # Integer to determine what artifacts to include
-include_prs_after: 0
+include_artifacts_after: 0
 ```
 
 Individual artifacts must have names with the format `pr####.yaml`, where

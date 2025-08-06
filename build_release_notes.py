@@ -55,21 +55,21 @@ def main():
     print(f"Found {len(all_artifact_files)} artifact(s) to process.")
 
     # check the artifacts to keep
-    pr_cutoff = 0 # include everything if not set
+    artifact_cutoff = 0 # include everything if not set
     common_data = load_yaml(common_file)
     for key, value in common_data.items():
-        if key == "include_prs_after":
-            pr_cutoff = value
+        if key == "include_artifacts_after":
+            artifact_cutoff = value
     # loop through artifacts
     artifact_files = []
     for artifact in all_artifact_files:
         # grab PR number
         substring = artifact[artifact.find('pr')+2:artifact.find('.yaml')]
-        pr_num = int(substring)
-        if(pr_num > pr_cutoff):
+        artifact_num = int(substring)
+        if(artifact_num > artifact_cutoff):
             artifact_files.append(artifact)
         
-    print(f"\tUsing {len(artifact_files)} artifact(s) to generate release notes based on pr_cutoff = {pr_cutoff}.\n")
+    print(f"\tUsing {len(artifact_files)} artifact(s) to generate release notes based on artifact_cutoff = {artifact_cutoff}.\n")
 
     # add common file to list of files
     artifact_files.append(common_file)
