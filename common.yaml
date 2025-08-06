@@ -3,3 +3,4 @@
 charm_name: Fake
 release_condition: latest/stable
 show_internal: false
+include_prs_after: 0
