@@ -28,15 +28,12 @@ release_condition: ""
 
 # Boolean to determine whether internal changes will be rendered
 show_internal: false
-
-# Integer to determine what artifacts to include
-include_artifacts_after: 0
 ```
 
 Individual artifacts must have names with the format `pr####.yaml`, where
 the number represents the pull request associated with the artifact.
 
-Individual artifact schema:
+Individual "change" artifact schema:
 ```yaml
 # Version of the artifact schema
 version_schema: 1

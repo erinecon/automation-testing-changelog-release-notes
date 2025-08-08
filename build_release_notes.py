@@ -46,30 +46,13 @@ def main():
     template = env.get_template('release-template.md.j2')
 
     # find artifact files
-    all_artifact_files = glob.glob(os.path.join(artifact_dir, '*.yaml'))
+    artifact_files = glob.glob(os.path.join(artifact_dir, '*.yaml'))
 
-    if not all_artifact_files:
+    if not artifact_files:
         print("No artifacts found.")
         return
     
-    print(f"Found {len(all_artifact_files)} artifact(s) to process.")
-
-    # check the artifacts to keep
-    artifact_cutoff = 0 # include everything if not set
-    common_data = load_yaml(common_file)
-    for key, value in common_data.items():
-        if key == "include_artifacts_after":
-            artifact_cutoff = value
-    # loop through artifacts
-    artifact_files = []
-    for artifact in all_artifact_files:
-        # grab PR number
-        substring = artifact[artifact.find('pr')+2:artifact.find('.yaml')]
-        artifact_num = int(substring)
-        if(artifact_num > artifact_cutoff):
-            artifact_files.append(artifact)
-        
-    print(f"\tUsing {len(artifact_files)} artifact(s) to generate release notes based on artifact_cutoff = {artifact_cutoff}.\n")
+    print(f"Found {len(artifact_files)} artifact(s) to process.")
 
     # add common file to list of files
     artifact_files.append(common_file)
