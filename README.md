@@ -52,6 +52,28 @@ changes:
     highlight: false # boolean to determine if change is highlight material (i.e. should be featureed in initial paragraph)
 ```
 
+Release artifact schema:
+
+```yaml
+# --- Information about release ----
+
+# list of change artifacts included in the release
+included_changes:
+
+# earliest revision included in the release
+earliest_revision:
+
+# latest revision included in the release
+latest_revision:
+
+# earliest date included in the release
+earliest_date:
+
+# latest date included in the release 
+latest_date:
+```
+
+
 ## Release notes schema -- combined artifact approach
 
 Current schema being tested:

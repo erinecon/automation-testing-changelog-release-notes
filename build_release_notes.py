@@ -37,7 +37,8 @@ def main():
     # define variables
     artifact_dir = 'artifacts'
     output_dir = 'docs/release-notes'
-    release_tag = 'test'
+    release_dir = 'releases'
+    release_tag = '0001'
     combined_file = 'all_data.yaml'
     common_file = 'common.yaml'
 
@@ -53,6 +54,44 @@ def main():
         return
     
     print(f"Found {len(artifact_files)} artifact(s) to process.")
+
+    # find release artifact
+    release_files = glob.glob(os.path.join(release_dir, '*.yaml'))
+    release_file = ''
+    for rf in release_files:
+        # grab release number
+        substring = rf[rf.find('.yaml')-4:rf.find('.yaml')]
+        # check release tag is equal to substring
+        if substring == release_tag:
+            release_file = rf
+
+    if not release_file:
+        print("No matching release file found.")
+        return
+
+    print(f"Found release artifact {release_file} based on tag {release_tag}.")
+
+    release_data = load_yaml(release_file)
+    for key, value in release_data.items():
+        print("nothing yet")
+        # TODO: grab all included changes
+    
+    # TODO: rename previous artifact_files to all_artifact_files
+    # TODO: loop through artifacts and only keep the ones for the release
+    # TODO: Something like below except current artifacts use file name (no path)
+    '''
+    # loop through artifacts
+    artifact_files = []
+    for artifact in all_artifact_files:
+        # grab PR number
+        substring = artifact[find('.yaml')-4:artifact.find('.yaml')]
+        artifact_num = int(substring)
+        if(artifact_num > artifact_cutoff):
+            artifact_files.append(artifact)
+    '''
+
+    # add release artifact to list of files
+    artifact_files.append(release_file)
 
     # add common file to list of files
     artifact_files.append(common_file)
