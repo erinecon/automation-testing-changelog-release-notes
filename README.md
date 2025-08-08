@@ -13,7 +13,7 @@ Currently hardcoded aspects to keep in mind:
 * `artifact_dir`: the directory where your artifacts live.
 * `output_dir`: the directory where the rendered output will live.
 * `release_tag`: determines the name of the output file like `release-notes-<release_tag>.md`. To be removed or refactored in the future.
-* `common_file`: where the `common.yaml` file lives. Assumed to live in the same directory as the Python script.
+* `common_file`: defines the `common.yaml` file. Assumed to live in the same directory as the Python script.
 * The Jinja template is assumed to live in a `templates` directory with the name `release-template.md.j2`. 
 
 ### Schemas
