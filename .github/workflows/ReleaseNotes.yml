@@ -3,7 +3,7 @@ name: 'Create release notes'
 on:
   push:
     branches:
-      - 'select-release-artifacts'
+      - 'main'
     paths:
       - 'releases/*'
 
