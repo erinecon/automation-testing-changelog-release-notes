@@ -38,7 +38,6 @@ def main():
     artifact_dir = 'artifacts'
     output_dir = 'docs/release-notes'
     release_dir = 'releases'
-    release_tag = '0001'
     combined_file = 'all_data.yaml'
     common_file = 'common.yaml'
 
@@ -50,24 +49,26 @@ def main():
     all_artifact_files = glob.glob(os.path.join(artifact_dir, '*.yaml'))
 
     if not all_artifact_files:
-        print("No artifacts found.")
+        print("No change artifacts found.")
         return
     
     print(f"Found {len(all_artifact_files)} artifact(s) in database.")
 
     # find release artifact
     release_files = glob.glob(os.path.join(release_dir, '*.yaml'))
-    release_file = ''
-    for rf in release_files:
-        # grab release number
-        substring = rf[rf.find('.yaml')-4:rf.find('.yaml')]
-        # check release tag is equal to substring
-        if substring == release_tag:
-            release_file = rf
+
+    if not release_files:
+        print("No release artifacts found.")
+        return
+    
+    # get the most recently created release artifact
+    release_file = max(release_files, key=os.path.getctime)
 
     if not release_file:
         print("No matching release file found.")
         return
+
+    release_tag = release_file[release_file.find('.yaml')-4:release_file.find('.yaml')]
 
     print(f"Found release artifact {release_file} based on tag {release_tag}.")
 
