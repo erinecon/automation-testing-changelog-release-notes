@@ -47,13 +47,13 @@ def main():
     template = env.get_template('release-template.md.j2')
 
     # find artifact files
-    artifact_files = glob.glob(os.path.join(artifact_dir, '*.yaml'))
+    all_artifact_files = glob.glob(os.path.join(artifact_dir, '*.yaml'))
 
-    if not artifact_files:
+    if not all_artifact_files:
         print("No artifacts found.")
         return
     
-    print(f"Found {len(artifact_files)} artifact(s) to process.")
+    print(f"Found {len(all_artifact_files)} artifact(s) in database.")
 
     # find release artifact
     release_files = glob.glob(os.path.join(release_dir, '*.yaml'))
@@ -71,24 +71,29 @@ def main():
 
     print(f"Found release artifact {release_file} based on tag {release_tag}.")
 
+    included_changes = []
     release_data = load_yaml(release_file)
     for key, value in release_data.items():
-        print("nothing yet")
-        # TODO: grab all included changes
+        if key == "included_changes":
+            included_changes = value
     
-    # TODO: rename previous artifact_files to all_artifact_files
-    # TODO: loop through artifacts and only keep the ones for the release
-    # TODO: Something like below except current artifacts use file name (no path)
-    '''
+    if not included_changes:
+        print("No change artifacts included in this release.")
+        return
+    
     # loop through artifacts
     artifact_files = []
     for artifact in all_artifact_files:
         # grab PR number
-        substring = artifact[find('.yaml')-4:artifact.find('.yaml')]
-        artifact_num = int(substring)
-        if(artifact_num > artifact_cutoff):
+        substring = artifact[artifact.find('.yaml')-6:]
+        if any(substring in change for change in included_changes):
             artifact_files.append(artifact)
-    '''
+
+    if not artifact_files:
+        print("No relevant change artifacts found for this release.")
+        return
+
+    print(f"Found {len(artifact_files)} artifact(s) for this release.")
 
     # add release artifact to list of files
     artifact_files.append(release_file)
