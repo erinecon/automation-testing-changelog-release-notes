@@ -10,11 +10,11 @@ python3 build_release_notes.py
 
 Currently hardcoded aspects to keep in mind:
 
-* `artifact_dir`: the directory where your artifacts live.
+* `artifact_dir`: the directory where your change artifacts live.
 * `output_dir`: the directory where the rendered output will live.
-* `release_tag`: determines the name of the output file like `release-notes-<release_tag>.md`. To be removed or refactored in the future.
+* `release_dir`: the directory where your release artifacts live. When you add a new release artifact, the GitHub action will trigger.
 * `common_file`: defines the `common.yaml` file. Assumed to live in the same directory as the Python script.
-* The Jinja template is assumed to live in a `templates` directory with the name `release-template.md.j2`. 
+* The Jinja template is assumed to live in a `template` directory with the name `release-template.md.j2`. 
 
 ### Schemas
 
