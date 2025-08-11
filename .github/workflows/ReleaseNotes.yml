@@ -5,7 +5,7 @@ on:
     branches:
       - 'select-release-artifacts'
     paths:
-      - 'releases/'
+      - 'releases/*'
 
 env:
   RELEASE_TAG: rev1-split
