@@ -37,7 +37,7 @@ def main():
     # define variables
     artifact_dir = 'artifacts'
     output_dir = 'docs/release-notes'
-    release_tag = 'test'
+    release_dir = 'releases'
     combined_file = 'all_data.yaml'
     common_file = 'common.yaml'
 
@@ -46,13 +46,55 @@ def main():
     template = env.get_template('release-template.md.j2')
 
     # find artifact files
-    artifact_files = glob.glob(os.path.join(artifact_dir, '*.yaml'))
+    all_artifact_files = glob.glob(os.path.join(artifact_dir, '*.yaml'))
 
-    if not artifact_files:
-        print("No artifacts found.")
+    if not all_artifact_files:
+        print("No change artifacts found.")
         return
     
-    print(f"Found {len(artifact_files)} artifact(s) to process.")
+    print(f"Found {len(all_artifact_files)} artifact(s) in database.")
+
+    # find release artifact
+    release_files = glob.glob(os.path.join(release_dir, '*.yaml'))
+
+    if not release_files:
+        print("No release artifacts found.")
+        return
+    
+    # get the most recently created release artifact
+    release_file = max(release_files, key=os.path.getctime)
+
+    if not release_file:
+        print("No matching release file found.")
+        return
+
+    release_tag = release_file[release_file.find('.yaml')-4:release_file.find('.yaml')]
+
+    print(f"Found release artifact {release_file} based on tag {release_tag}.")
+
+    release_data = load_yaml(release_file)
+    included_changes = release_data.get("included_changes", [])
+    
+    if not included_changes:
+        print("No change artifacts included in this release.")
+        return
+    
+    # loop through artifacts
+    artifact_files = []
+    for artifact in all_artifact_files:
+        # grab PR number
+        substring = artifact[artifact.find('.yaml')-6:]
+        if any(substring in change for change in included_changes):
+            artifact_files.append(artifact)
+
+    if not artifact_files:
+        print("No relevant change artifacts found for this release.")
+        return
+
+    print(f"Found {len(artifact_files)} artifact(s) for this release.")
+
+    # add release artifact to list of files
+    artifact_files.append(release_file)
 
     # add common file to list of files
     artifact_files.append(common_file)

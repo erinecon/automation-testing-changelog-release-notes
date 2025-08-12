@@ -10,9 +10,9 @@ python3 build_release_notes.py
 
 Currently hardcoded aspects to keep in mind:
 
-* `artifact_dir`: the directory where your artifacts live.
+* `artifact_dir`: the directory where your change artifacts live.
 * `output_dir`: the directory where the rendered output will live.
-* `release_tag`: determines the name of the output file like `release-notes-<release_tag>.md`. To be removed or refactored in the future.
+* `release_dir`: the directory where your release artifacts live. When you add a new release artifact, the GitHub action will trigger.
 * `common_file`: defines the `common.yaml` file. Assumed to live in the same directory as the Python script.
 * The Jinja template is assumed to live in a `template` directory with the name `release-template.md.j2`. 
 
@@ -30,7 +30,10 @@ release_condition: ""
 show_internal: false
 ```
 
-Individual artifact:
+Individual artifacts must have names with the format `pr####.yaml`, where
+the number represents the pull request associated with the artifact.
+
+Individual "change" artifact schema:
 ```yaml
 # Version of the artifact schema
 version_schema: 1
@@ -48,6 +51,28 @@ changes:
     visibility: public # determines whether artifact should be rendered. Accepted values: public, internal, hidden
     highlight: false # boolean to determine if change is highlight material (i.e. should be featureed in initial paragraph)
 ```
+
+Release artifact schema:
+
+```yaml
+# --- Information about release ----
+
+# list of change artifacts included in the release
+included_changes:
+
+# earliest revision included in the release
+earliest_revision:
+
+# latest revision included in the release
+latest_revision:
+
+# earliest date included in the release
+earliest_date:
+
+# latest date included in the release 
+latest_date:
+```
+
 
 ## Release notes schema -- combined artifact approach
 

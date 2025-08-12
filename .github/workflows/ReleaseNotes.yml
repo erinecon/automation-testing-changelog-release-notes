@@ -1,8 +1,11 @@
 name: 'Create release notes'
 
 on:
-  workflow_dispatch:
-  # TODO: determine the actual point in our workflows where we trigger the action
+  push:
+    branches:
+      - 'main'
+    paths:
+      - 'releases/*'
 
 env:
   RELEASE_TAG: rev1-split
@@ -38,8 +41,7 @@ jobs:
             Add release notes.
 
             ### Checklist
-            - [ ] The release condition was updated.
             - [ ] The workload version and required software versions were updated.
-            - [ ] Additional context was added for the relevant updates.
+            - [ ] Additional context was added for relevant updates.
             - [ ] A list of known issues was added.
-            - [ ] These release notes were added to the [landing page](docs/release-notes/landing-page.md).
+            - [ ] The release notes were added to the [landing page](docs/release-notes/landing-page.md).
