@@ -72,11 +72,8 @@ def main():
 
     print(f"Found release artifact {release_file} based on tag {release_tag}.")
 
-    included_changes = []
     release_data = load_yaml(release_file)
-    for key, value in release_data.items():
-        if key == "included_changes":
-            included_changes = value
+    included_changes = release_data.get("included_changes", [])
     
     if not included_changes:
         print("No change artifacts included in this release.")

@@ -41,8 +41,7 @@ jobs:
             Add release notes.
 
             ### Checklist
-            - [ ] The release condition was updated.
             - [ ] The workload version and required software versions were updated.
-            - [ ] Additional context was added for the relevant updates.
+            - [ ] Additional context was added for relevant updates.
             - [ ] A list of known issues was added.
-            - [ ] These release notes were added to the [landing page](docs/release-notes/landing-page.md).
+            - [ ] The release notes were added to the [landing page](docs/release-notes/landing-page.md).
