@@ -1,7 +1,11 @@
 name: 'Create release notes'
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - 'releases/*'
 
 env:
   CHANGE_ARTIFACT_DIR: artifacts
