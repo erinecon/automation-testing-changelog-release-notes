@@ -8,13 +8,36 @@ Run:
 python3 build_release_notes.py
 ```
 
-Currently hardcoded aspects to keep in mind:
+Usage and options:
 
-* `artifact_dir`: the directory where your change artifacts live.
-* `output_dir`: the directory where the rendered output will live.
-* `release_dir`: the directory where your release artifacts live. When you add a new release artifact, the GitHub action will trigger.
-* `common_file`: defines the `common.yaml` file. Assumed to live in the same directory as the Python script.
-* The Jinja template is assumed to live in a `template` directory with the name `release-template.md.j2`. 
+```
+usage: build_release_notes.py [-h] [-a ARTIFACTDIR] [-o OUTPUTDIR] [-r RELEASEDIR] [-c COMMONFILE] [-t TEMPLATEDIR] [-f TEMPLATEFILE]
+
+Generates release notes based on multiple artifacts
+
+options:
+  -h, --help            show this help message and exit
+  -a ARTIFACTDIR, --artifactdir ARTIFACTDIR
+                        the directory where your change artifacts live
+  -o OUTPUTDIR, --outputdir OUTPUTDIR
+                        the directory where the rendered output will live
+  -r RELEASEDIR, --releasedir RELEASEDIR
+                        the directory where your release artifacts live
+  -c COMMONFILE, --commonfile COMMONFILE
+                        full path to your common.yaml file
+  -t TEMPLATEDIR, --templatedir TEMPLATEDIR
+                        directory where your release notes template lives
+  -f TEMPLATEFILE, --templatefile TEMPLATEFILE
+                        name of release notes template file
+```
+
+All arguments have default settings:
+* `--artifactdir`: `artifacts`
+* `--outputdir`: `docs/release-notes`
+* `--releasedir`: `releases`
+* `--commonfile`: `common.yaml`
+* `--templatedir`: `template`
+* `--templatefile`: `release-template.md.j2`
 
 ### Schemas
 
