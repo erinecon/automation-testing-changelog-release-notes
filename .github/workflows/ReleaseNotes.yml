@@ -52,7 +52,7 @@ jobs:
           pip install jinja2
       - name: Generate release notes
         run: |
-          python3 build_release_notes.py --artifactdir ${{ inputs.change-artifact-dir }} --outputdir ${{ input.release-output-dir }} --releasedir ${{ input.release-artifact-dir }} --commonfile ${{ input.common-file }} --templatedir ${{ input.template-dir }} --templatefile ${{ input.template-file-name }}
+          python3 build_release_notes.py --artifactdir ${{ inputs.change-artifact-dir }} --outputdir ${{ inputs.release-output-dir }} --releasedir ${{ inputs.release-artifact-dir }} --commonfile ${{ inputs.common-file }} --templatedir ${{ inputs.template-dir }} --templatefile ${{ inputs.template-file-name }}
       - name: Open pull request
         uses: canonical/create-pull-request@main
         with:
