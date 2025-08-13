@@ -1,6 +1,42 @@
 name: 'Create release notes'
 
 on:
+  push:
+    branches:
+      - 'main'
+    paths:
+      - 'releases/*'
+    inputs:
+      change-artifact-dir:
+        type: string
+        required: true
+        default: artifacts
+        description: The directory where your change artifacts live
+      release-output-dir:
+        type: string
+        required: true
+        default: docs/release-notes
+        description: The directory where the rendered output will live
+      release-artifact-dir:
+        type: string
+        required: true
+        default: releases
+        description: The directory where your release artifacts live
+      common-file:
+        type: string
+        required: true
+        default: common.yaml
+        description: full path to the YAML file with keys common among all artifacts
+      template-dir:
+        type: string
+        required: true
+        default: template
+        description: directory where your release notes template lives
+      template-file-name:
+        type: string
+        required: true
+        default: release-template.md.j2
+        description: name of release notes template file    
   workflow_dispatch:
     inputs:
       change-artifact-dir:
