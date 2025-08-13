@@ -24,7 +24,7 @@ options:
   -r RELEASEDIR, --releasedir RELEASEDIR
                         the directory where your release artifacts live
   -c COMMONFILE, --commonfile COMMONFILE
-                        full path to your common.yaml file
+                        full path to the YAML file with keys common among all artifacts
   -t TEMPLATEDIR, --templatedir TEMPLATEDIR
                         directory where your release notes template lives
   -f TEMPLATEFILE, --templatefile TEMPLATEFILE

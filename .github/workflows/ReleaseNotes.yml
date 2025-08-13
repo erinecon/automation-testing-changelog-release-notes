@@ -1,19 +1,38 @@
 name: 'Create release notes'
 
 on:
-  push:
-    branches:
-      - 'main'
-    paths:
-      - 'releases/*'
-
-env:
-  CHANGE_ARTIFACT_DIR: artifacts
-  RELEASE_OUTPUT_DIR: docs/release-notes
-  RELEASE_ARTIFACT_DIR: releases
-  COMMON_FILE: common.yaml
-  TEMPLATE_DIR: template
-  TEMPLATE_FILE: release-template.md.j2
+  workflow_call:
+    inputs:
+      change-artifact-dir:
+        type: string
+        required: true
+        default: artifacts
+        description: The directory where your change artifacts live
+      release-output-dir:
+        type: string
+        required: true
+        default: docs/release-notes
+        description: The directory where the rendered output will live
+      release-artifact-dir:
+        type: string
+        required: true
+        default: releases
+        description: The directory where your release artifacts live
+      common-file:
+        type: string
+        required: true
+        default: common.yaml
+        description: full path to the YAML file with keys common among all artifacts
+      template-dir:
+        type: string
+        required: true
+        default: template
+        description: directory where your release notes template lives
+      template-file-name:
+        type: string
+        required: true
+        default: release-template.md.j2
+        description: name of release notes template file
 
 jobs:
   job1:
@@ -32,9 +51,8 @@ jobs:
           pip install pyyaml
           pip install jinja2
       - name: Generate release notes
-        # TODO: Add RELEASE_TAG to the script
         run: |
-          python3 build_release_notes.py --artifactdir $CHANGE_ARTIFACT_DIR --outputdir $RELEASE_OUTPUT_DIR --releasedir $RELEASE_ARTIFACT_DIR --commonfile $COMMON_FILE --templatedir $TEMPLATE_DIR --templatefile $TEMPLATE_FILE
+          python3 build_release_notes.py --artifactdir ${{ inputs.change-artifact-dir }} --outputdir ${{ input.release-output-dir }} --releasedir ${{ input.release-artifact-dir }} --commonfile ${{ input.common-file }} --templatedir ${{ input.template-dir }} --templatefile ${{ input.template-file-name }}
       - name: Open pull request
         uses: canonical/create-pull-request@main
         with:
