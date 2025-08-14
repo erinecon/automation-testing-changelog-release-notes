@@ -36,11 +36,11 @@ def main():
     """"Generates release notes based on multiple artifacts."""
 
     parser = argparse.ArgumentParser(prog="build_release_notes.py", description="Generates release notes based on multiple artifacts")
-    parser.add_argument("-a", "--artifactdir", default="artifacts", type=str, help = "the directory where your change artifacts live")
+    parser.add_argument("-a", "--artifactdir", default="docs/release-notes/artifacts", type=str, help = "the directory where your change artifacts live")
     parser.add_argument("-o", "--outputdir", default="docs/release-notes", type=str, help = "the directory where the rendered output will live")
-    parser.add_argument("-r", "--releasedir", default="releases", type=str, help = "the directory where your release artifacts live")
-    parser.add_argument("-c", "--commonfile", default="common.yaml", type=str, help = "full path to the YAML file with keys common among all artifacts")
-    parser.add_argument("-t", "--templatedir", default="template", type=str, help = "directory where your release notes template lives")
+    parser.add_argument("-r", "--releasedir", default="docs/release-notes/releases", type=str, help = "the directory where your release artifacts live")
+    parser.add_argument("-c", "--commonfile", default="docs/release-notes/common.yaml", type=str, help = "full path to the YAML file with keys common among all artifacts")
+    parser.add_argument("-t", "--templatedir", default="docs/release-notes/template", type=str, help = "directory where your release notes template lives")
     parser.add_argument("-f", "--templatefile", default="release-template.md.j2", type=str, help = "name of release notes template file")
     args = parser.parse_args()
 

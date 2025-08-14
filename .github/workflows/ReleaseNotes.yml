@@ -10,7 +10,7 @@ on:
       change-artifact-dir:
         type: string
         required: true
-        default: artifacts
+        default: docs/release-notes/artifacts
         description: The directory where your change artifacts live
       release-output-dir:
         type: string
@@ -20,17 +20,17 @@ on:
       release-artifact-dir:
         type: string
         required: true
-        default: releases
+        default: docs/release-notes/releases
         description: The directory where your release artifacts live
       common-file:
         type: string
         required: true
-        default: common.yaml
+        default: docs/release-notes/common.yaml
         description: full path to the YAML file with keys common among all artifacts
       template-dir:
         type: string
         required: true
-        default: template
+        default: docs/release-notes/template
         description: directory where your release notes template lives
       template-file-name:
         type: string
@@ -42,7 +42,7 @@ on:
       change-artifact-dir:
         type: string
         required: true
-        default: artifacts
+        default: docs/release-notes/artifacts
         description: The directory where your change artifacts live
       release-output-dir:
         type: string
@@ -52,17 +52,17 @@ on:
       release-artifact-dir:
         type: string
         required: true
-        default: releases
+        default: docs/release-notes/releases
         description: The directory where your release artifacts live
       common-file:
         type: string
         required: true
-        default: common.yaml
+        default: docs/release-notes/common.yaml
         description: full path to the YAML file with keys common among all artifacts
       template-dir:
         type: string
         required: true
-        default: template
+        default: docs/release-notes/template
         description: directory where your release notes template lives
       template-file-name:
         type: string
@@ -74,7 +74,7 @@ on:
       change-artifact-dir:
         type: string
         required: true
-        default: artifacts
+        default: docs/release-notes/artifacts
         description: The directory where your change artifacts live
       release-output-dir:
         type: string
@@ -84,17 +84,17 @@ on:
       release-artifact-dir:
         type: string
         required: true
-        default: releases
+        default: docs/release-notes/releases
         description: The directory where your release artifacts live
       common-file:
         type: string
         required: true
-        default: common.yaml
+        default: docs/release-notes/common.yaml
         description: full path to the YAML file with keys common among all artifacts
       template-dir:
         type: string
         required: true
-        default: template
+        default: docs/release-notes/template
         description: directory where your release notes template lives
       template-file-name:
         type: string
@@ -120,7 +120,13 @@ jobs:
           pip install jinja2
       - name: Generate release notes
         run: |
-          python3 build_release_notes.py --artifactdir ${{ inputs.change-artifact-dir }} --outputdir ${{ inputs.release-output-dir }} --releasedir ${{ inputs.release-artifact-dir }} --commonfile ${{ inputs.common-file }} --templatedir ${{ inputs.template-dir }} --templatefile ${{ inputs.template-file-name }}
+          python3 build_release_notes.py \
+            --artifactdir ${{ inputs.change-artifact-dir }} \
+            --outputdir ${{ inputs.release-output-dir }} \
+            --releasedir ${{ inputs.release-artifact-dir }} \
+            --commonfile ${{ inputs.common-file }} \
+            --templatedir ${{ inputs.template-dir }} \
+            --templatefile ${{ inputs.template-file-name }}
       - name: Open pull request
         uses: canonical/create-pull-request@main
         with:
