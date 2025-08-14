@@ -56,6 +56,7 @@ jobs:
         with:
           repository: erinecon/automation-testing-changelog-release-notes
           path: reusable-workflow-repo
+          ref: remove-hardcoded-aspects
       - name: Generate release notes
         run: |
           python3 ${GITHUB_WORKSPACE}/reusable-workflow-repo/build_release_notes.py \
