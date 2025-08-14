@@ -1,37 +1,40 @@
 name: Generate release notes
 author: '@erinecon'
 description: 'Autogenerates release notes when a new release artifact is added.'
-inputs:
-  change-artifact-dir:
-    type: string
-    required: true
-    default: docs/release-notes/artifacts
-    description: The directory where your change artifacts live
-  release-output-dir:
-    type: string
-    required: true
-    default: docs/release-notes
-    description: The directory where the rendered output will live
-  release-artifact-dir:
-    type: string
-    required: true
-    default: docs/release-notes/releases
-    description: The directory where your release artifacts live
-  common-file:
-    type: string
-    required: true
-    default: docs/release-notes/common.yaml
-    description: full path to the YAML file with keys common among all artifacts
-  template-dir:
-    type: string
-    required: true
-    default: docs/release-notes/template
-    description: directory where your release notes template lives
-  template-file-name:
-    type: string
-    required: true
-    default: release-template.md.j2
-    description: name of release notes template file    
+on:
+  workflow_call:  
+    inputs:
+      change-artifact-dir:
+        type: string
+        required: true
+        default: docs/release-notes/artifacts
+        description: The directory where your change artifacts live
+      release-output-dir:
+        type: string
+        required: true
+        default: docs/release-notes
+        description: The directory where the rendered output will live
+      release-artifact-dir:
+        type: string
+        required: true
+        default: docs/release-notes/releases
+        description: The directory where your release artifacts live
+      common-file:
+        type: string
+        required: true
+        default: docs/release-notes/common.yaml
+        description: full path to the YAML file with keys common among all artifacts
+      template-dir:
+        type: string
+        required: true
+        default: docs/release-notes/template
+        description: directory where your release notes template lives
+      template-file-name:
+        type: string
+        required: true
+        default: release-template.md.j2
+        description: name of release notes template file    
+
 runs:
   steps:
     # Checks out repo under $GITHUB_WORKSPACE
@@ -57,9 +60,8 @@ runs:
       shell: bash
     - name: Open pull request
       uses: canonical/create-pull-request@main
-      env:
-        github-token: ${{ secrets.RELEASENOTESPAT }}
       with:
+        github-token: ${{ secrets.RELEASENOTESPAT }}
         commit-message: Add release notes
         branch-name: add-release-notes
         title: Add release notes
