@@ -32,11 +32,11 @@ options:
 ```
 
 All arguments have default settings:
-* `--artifactdir`: `artifacts`
+* `--artifactdir`: `docs/release-notes/artifacts`
 * `--outputdir`: `docs/release-notes`
-* `--releasedir`: `releases`
-* `--commonfile`: `common.yaml`
-* `--templatedir`: `template`
+* `--releasedir`: `docs/release-notes/releases`
+* `--commonfile`: `docs/release-notes/common.yaml`
+* `--templatedir`: `docs/release-notes/template`
 * `--templatefile`: `release-template.md.j2`
 
 ### Schemas
