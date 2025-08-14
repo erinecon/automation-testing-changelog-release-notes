@@ -2,6 +2,7 @@ import os
 import glob
 import yaml
 from jinja2 import Environment, FileSystemLoader
+import argparse
 
 def load_yaml(file_path):
     with open(file_path, 'r') as f:
@@ -34,16 +35,27 @@ def combine_data(file_paths, output_file):
 def main():
     """"Generates release notes based on multiple artifacts."""
 
+    parser = argparse.ArgumentParser(prog="build_release_notes.py", description="Generates release notes based on multiple artifacts")
+    parser.add_argument("-a", "--artifactdir", default="docs/release-notes/artifacts", type=str, help = "the directory where your change artifacts live")
+    parser.add_argument("-o", "--outputdir", default="docs/release-notes", type=str, help = "the directory where the rendered output will live")
+    parser.add_argument("-r", "--releasedir", default="docs/release-notes/releases", type=str, help = "the directory where your release artifacts live")
+    parser.add_argument("-c", "--commonfile", default="docs/release-notes/common.yaml", type=str, help = "full path to the YAML file with keys common among all artifacts")
+    parser.add_argument("-t", "--templatedir", default="docs/release-notes/template", type=str, help = "directory where your release notes template lives")
+    parser.add_argument("-f", "--templatefile", default="release-template.md.j2", type=str, help = "name of release notes template file")
+    args = parser.parse_args()
+
     # define variables
-    artifact_dir = 'artifacts'
-    output_dir = 'docs/release-notes'
-    release_dir = 'releases'
+    artifact_dir = args.artifactdir
+    output_dir = args.outputdir
+    release_dir = args.releasedir
+    common_file = args.commonfile
+    template_dir = args.templatedir
+    template_file = args.templatefile
     combined_file = 'all_data.yaml'
-    common_file = 'common.yaml'
 
     # Jinja2 environment 
-    env = Environment(loader=FileSystemLoader('template'))
-    template = env.get_template('release-template.md.j2')
+    env = Environment(loader=FileSystemLoader(template_dir))
+    template = env.get_template(template_file)
 
     # find artifact files
     all_artifact_files = glob.glob(os.path.join(artifact_dir, '*.yaml'))

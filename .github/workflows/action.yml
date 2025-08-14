@@ -1,74 +1,6 @@
 name: 'Create release notes'
 
 on:
-  push:
-    branches:
-      - 'main'
-    paths:
-      - 'docs/release-notes/releases/*'
-    inputs:
-      change-artifact-dir:
-        type: string
-        required: true
-        default: docs/release-notes/artifacts
-        description: The directory where your change artifacts live
-      release-output-dir:
-        type: string
-        required: true
-        default: docs/release-notes
-        description: The directory where the rendered output will live
-      release-artifact-dir:
-        type: string
-        required: true
-        default: docs/release-notes/releases
-        description: The directory where your release artifacts live
-      common-file:
-        type: string
-        required: true
-        default: docs/release-notes/common.yaml
-        description: full path to the YAML file with keys common among all artifacts
-      template-dir:
-        type: string
-        required: true
-        default: docs/release-notes/template
-        description: directory where your release notes template lives
-      template-file-name:
-        type: string
-        required: true
-        default: release-template.md.j2
-        description: name of release notes template file    
-  workflow_dispatch:
-    inputs:
-      change-artifact-dir:
-        type: string
-        required: true
-        default: docs/release-notes/artifacts
-        description: The directory where your change artifacts live
-      release-output-dir:
-        type: string
-        required: true
-        default: docs/release-notes
-        description: The directory where the rendered output will live
-      release-artifact-dir:
-        type: string
-        required: true
-        default: docs/release-notes/releases
-        description: The directory where your release artifacts live
-      common-file:
-        type: string
-        required: true
-        default: docs/release-notes/common.yaml
-        description: full path to the YAML file with keys common among all artifacts
-      template-dir:
-        type: string
-        required: true
-        default: docs/release-notes/template
-        description: directory where your release notes template lives
-      template-file-name:
-        type: string
-        required: true
-        default: release-template.md.j2
-        description: name of release notes template file
   workflow_call:
     inputs:
       change-artifact-dir:
@@ -103,13 +35,13 @@ on:
         description: name of release notes template file
 
 jobs:
-  job1:
+  release-notes:
     name: 'Generate release notes'
     runs-on: ubuntu-latest
 
     steps:
       # Checks out repo under $GITHUB_WORKSPACE
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
       # Sets up Python
       - uses: actions/setup-python@v5
         with:
@@ -118,9 +50,15 @@ jobs:
         run: |
           pip install pyyaml
           pip install jinja2
+      # checks out automation repo to grab script
+      - name: Checkout reusable workflow dir
+        uses: actions/checkout@v4
+        with:
+          repository: erinecon/automation-testing-changelog-release-notes
+          path: reusable-workflow-repo
       - name: Generate release notes
         run: |
-          python3 build_release_notes.py \
+          python3 ${GITHUB_WORKSPACE}/reusable-workflow-repo/build_release_notes.py \
             --artifactdir ${{ inputs.change-artifact-dir }} \
             --outputdir ${{ inputs.release-output-dir }} \
             --releasedir ${{ inputs.release-artifact-dir }} \

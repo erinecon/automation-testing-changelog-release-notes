@@ -1,10 +1,10 @@
 <!-- Remember to update this file for your charm -- replace <charm-name> with the appropriate name,
 follow the release notes policy in the title, and fill in the relevant details. -->
 
-# {{ charm_name }} release notes – {{ release_condition }}
+# Fake release notes – latest/stable
 
-These release notes cover new features and changes in {{ charm_name }} for revisions
-{{ earliest_revision }}-{{ latest_revision }} between the dates of {{ earliest_date }} and {{ latest_date }}.
+These release notes cover new features and changes in Fake for revisions
+1-8 between the dates of 2025-01-01 and 2025-06-01.
 
 <!--
 Add an introduction summarizing the most significant features and impactful changes
@@ -14,18 +14,14 @@ and "Main bug fixes", using past tense to describe each of the items
 -->
 
 Main features:
-{% for feat in changes -%}
-{%- if feat.highlight == true and (feat.visibility == "public" or (feat.visibility == "internal" and show_internal == true) ) and (feat.type == "major" or feat.type == "minor") -%}
-* {{ feat.title }}.
-{% endif -%}
-{% endfor %}
+* Added initial Python script.
+* Added GitHub action.
+
 
 Main bug fixes:
-{% for feat in changes -%}
-{%- if feat.highlight == true and (feat.visibility == "public" or (feat.visibility == "internal" and show_internal == true) ) and feat.type == "bugfix" -%}
-* {{ feat.title }}.
-{% endif -%}
-{% endfor %}
+* Fixed a bug where the URLs weren't rendered correctly in the template.
+* Fixed a bug where the automation script incorrectly named the output file.
+
 
 See our [Release policy and schedule](docs/release-notes/landing-page.md).
 
@@ -63,24 +59,33 @@ The subsection below shows the pattern for each feature. Include links to the re
 
 The following major and minor features were added in this release.
 
-{% for feat in changes %}
-{%- if (feat.type == "major" or feat.type == "minor") and (feat.visibility == "public" or (feat.visibility == "internal" and show_internal == true) ) -%}
-
-### {{ feat.title }}
-{{ feat.description }}
+### Added initial Python script
+Added initial automation script to build release notes.
 <Add more context and information about the entry>
 
 Relevant links:
-* [PR]({{ feat.urls.pr }})
-{% if feat.urls.related_doc is not none -%}
-* [Related documentation]({{ feat.urls.related_doc }})
-{% endif -%}
-{% if feat.urls.related_issue is not none -%}
-* [Related issue]({{ feat.urls.related_issue }})
-{% endif %}
+* [PR](https://github.com/erinecon/automation-testing-changelog-release-notes/commit/15716db0e2c5f19124fd32f9a26d14126bbc9ca0)
 
-{% endif -%}
-{% endfor %}
+
+### Added initial Jinja template.
+First test of the Jinja template.
+<Add more context and information about the entry>
+
+Relevant links:
+* [PR](https://github.com/erinecon/automation-testing-changelog-release-notes/commit/cbd08aa188b113439c2907e6ae108e080399b3b0)
+
+
+### Added GitHub action
+Now there's a GitHub action that uses the script and automatically opens a pull
+request with the rendered release notes!
+
+<Add more context and information about the entry>
+
+Relevant links:
+* [PR](https://github.com/erinecon/automation-testing-changelog-release-notes/pull/2)
+
+
+
 
 ## Bug fixes
 
@@ -88,11 +93,10 @@ Relevant links:
 Add a bulleted list of bug fixes here, with links to the relevant PR/commit.
 -->
 
-{% for feat in changes -%}
-{%- if feat.type == "bugfix" and (feat.visibility == "public" or (feat.visibility == "internal" and show_internal == true) ) -%}
-* {{ feat.title }} ([PR]({{ feat.urls.pr }})).
-{% endif -%}
-{% endfor %}
+* Fixed a bug where the URLs weren't rendered correctly in the template ([PR](https://github.com/erinecon/automation-testing-changelog-release-notes/commit/3de734d1f1993d1f56d4f6c6cf9c8f74a6b08ec8)).
+* Fixed feature tag grabbing ([PR](https://github.com/erinecon/automation-testing-changelog-release-notes/commit/50e8f331c1f776483d89d8c7d1e23706e40ba7f4)).
+* Fixed a bug where the automation script incorrectly named the output file ([PR](https://github.com/erinecon/automation-testing-changelog-release-notes/commit/ac0e0db5a810321e64e5b719199b53a0376d08e0)).
+
 
 ## Breaking changes
 
@@ -104,23 +108,13 @@ If there are no breaking changes, keep the section and write "No breaking change
 
 The following backwards-incompatible changes are included in this release.
 
-{% for feat in changes -%}
-{%- if feat.type == "breaking" and (feat.visibility == "public" or (feat.visibility == "internal" and show_internal == true) ) -%}
-### {{ feat.title }}
-{{ feat.description }}
+### Renamed feature tag
+Renamed `feature_tag` to `release_tag`.
 <Add more context and information about the entry>
 
 Relevant links:
-* [PR]({{ feat.urls.pr }})
-{% if feat.urls.related_doc is not none -%}
-* [Related documentation]({{ feat.urls.related_doc }})
-{% endif -%}
-{% if feat.urls.related_issue is not none -%}
-* [Related issue]({{ feat.urls.related_issue }})
-{% endif -%}
+* [PR](https://github.com/erinecon/automation-testing-changelog-release-notes/commit/85abffb0fc3ca2b6a33e62d28be62349f052b041)
 
-{% endif -%}
-{% endfor %}
 
 ## Deprecated
 
@@ -132,23 +126,13 @@ If there are no deprecated features, keep the section and write "No deprecated f
 
 The following features have been deprecated.
 
-{% for feat in changes -%}
-{%- if feat.type == "deprecated" and (feat.visibility == "public" or (feat.visibility == "internal" and show_internal == true) ) -%}
-### {{ feat.title }}
-{{ feat.description }}
+### Removed release_tag from the artifact
+Removed `release_tag` from the artifact.
 <Add more context and information about the entry>
 
 Relevant links:
-* [PR]({{ feat.urls.pr }})
-{% if feat.urls.related_doc is not none -%}
-* [Related documentation]({{ feat.urls.related_doc }})
-{% endif -%}
-{% if feat.urls.related_issue is not none -%}
-* [Related issue]({{ feat.urls.related_issue }})
-{% endif -%}
+* [PR](https://github.com/erinecon/automation-testing-changelog-release-notes/commit/99bf42cbb0f819860e3ca9e8c1058ea006c753da)
 
-{% endif -%}
-{% endfor %}
 
 ## Known issues
 
@@ -165,12 +149,5 @@ If there are no known issues, keep the section and write "No known issues".
 <!--
 List of contributors based on PRs/commits. Remove this section if there are no contributors in this release.
 -->
-{%- set authors_in_list = [] -%}
-{% for feat in changes %}
-{%- set author_value = '['+feat.author+'](https://github.com/'+feat.author+')' -%}
-{%- if author_value not in authors_in_list -%}
-{{ authors_in_list.append(author_value) or "" }}
-{%- endif -%}
-{% endfor %}
 
-{{ authors_in_list|join(', ') }}
+[erinecon](https://github.com/erinecon)
