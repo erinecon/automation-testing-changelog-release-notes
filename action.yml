@@ -57,8 +57,9 @@ runs:
       shell: bash
     - name: Open pull request
       uses: canonical/create-pull-request@main
-      with:
+      env:
         github-token: ${{ secrets.RELEASENOTESPAT }}
+      with:
         commit-message: Add release notes
         branch-name: add-release-notes
         title: Add release notes
