@@ -1,5 +1,4 @@
 name: Generate release notes
-author: '@erinecon'
 description: 'Autogenerates release notes when a new release artifact is added.'
 on:
   workflow_call:  
@@ -35,7 +34,7 @@ on:
         default: release-template.md.j2
         description: name of release notes template file    
 
-runs:
+jobs:
   steps:
     # Checks out repo under $GITHUB_WORKSPACE
     - uses: actions/checkout@v3
