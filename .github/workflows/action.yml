@@ -35,7 +35,7 @@ on:
         description: name of release notes template file
 
 jobs:
-  job1:
+  release-notes:
     name: 'Generate release notes'
     runs-on: ubuntu-latest
 
@@ -50,9 +50,15 @@ jobs:
         run: |
           pip install pyyaml
           pip install jinja2
+      # checks out automation repo to grab script
+      - name: Checkout reusable workflow dir
+        uses: actions/checkout@v4
+        with:
+          repository: erinecon/automation-testing-changelog-release-notes
+          path: reusable-workflow-repo
       - name: Generate release notes
         run: |
-          python3 build_release_notes.py \
+          python3 ${GITHUB_WORKSPACE}/reusable-workflow-repo/build_release_notes.py \
             --artifactdir ${{ inputs.change-artifact-dir }} \
             --outputdir ${{ inputs.release-output-dir }} \
             --releasedir ${{ inputs.release-artifact-dir }} \
