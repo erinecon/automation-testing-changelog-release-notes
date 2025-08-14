@@ -5,7 +5,7 @@ on:
     branches:
       - 'main'
     paths:
-      - 'releases/*'
+      - 'docs/release-notes/releases/*'
     inputs:
       change-artifact-dir:
         type: string

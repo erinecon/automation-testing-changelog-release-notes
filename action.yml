@@ -44,6 +44,7 @@ runs:
       run: |
         pip install pyyaml
         pip install jinja2
+      shell: bash
     - name: Generate release notes
       run: |
         python3 build_release_notes.py \
@@ -53,6 +54,7 @@ runs:
           --commonfile ${{ inputs.common-file }} \
           --templatedir ${{ inputs.template-dir }} \
           --templatefile ${{ inputs.template-file-name }}
+      shell: bash
     - name: Open pull request
       uses: canonical/create-pull-request@main
       with:
