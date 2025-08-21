@@ -5,14 +5,17 @@ from jinja2 import Environment, FileSystemLoader
 import argparse
 
 def load_yaml(file_path):
+    """"Loads data from a YAML file."""
     with open(file_path, 'r') as f:
         return yaml.safe_load(f)
     
 def save_yaml(data, file_path):
+    """"Saves data into a YAML file."""
     with open(file_path, 'w') as f:
         yaml.safe_dump(data, f, default_flow_style=False)
 
 def combine_data(file_paths, output_file):
+    """"Opens multiple YAML files and combines their data into a single output file."""
     combined_data = {}
 
     for file_path in file_paths:
