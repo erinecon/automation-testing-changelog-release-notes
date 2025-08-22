@@ -37,6 +37,7 @@ def combine_data(file_paths, output_file):
 
 
 def is_visible(visibility, show_internal):
+    """"Check whether to render a change artifact in the Jinja template."""
     return visibility == "public" or (visibility == "internal" and show_internal)
 
 def main():
