@@ -10,4 +10,4 @@ changes:
       related_doc: 
       related_issue: 
     visibility: public
-    highlight: false
+    highlight: true
