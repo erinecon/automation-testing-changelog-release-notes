@@ -35,6 +35,10 @@ def combine_data(file_paths, output_file):
 
     save_yaml(combined_data, output_file)
 
+
+def is_visible(visibility, show_internal):
+    return visibility == "public" or (visibility == "internal" and show_internal)
+
 def main():
     """"Generates release notes based on multiple artifacts."""
 
@@ -58,6 +62,7 @@ def main():
 
     # Jinja2 environment 
     env = Environment(loader=FileSystemLoader(template_dir))
+    env.globals['is_visible'] = is_visible
     template = env.get_template(template_file)
 
     # find artifact files
