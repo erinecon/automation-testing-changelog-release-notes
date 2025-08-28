@@ -1,31 +1,154 @@
 # Release notes automation
 
-Tooling and workflows designed to automate release notes in a
-data-driven process.
+Tooling and workflow to automate release notes generation.
 
-## Change and release artifacts
+## Overview
 
-In the multi-artifact approach, the process follows these steps:
+This project eliminates the manual and error-prone process of compiling release notes.
+Instead of relying on commit messages or ticket descriptions,
+it generates documentation from structured YAML "artifacts".
 
-1. On a PR level, include a "change artifact" in a dedicated change artifacts directory to summarize
-   the changes to be included in the release.
-2. When a release condition is met, add a "release artifact" in a dedicated release artifacts directory.
-3. The GitHub Action workflow uses the change artifacts defined in the release artifact to pre-populate
-   a Jinja template.
-4. The workflow automatically opens a PR to publish the release notes in your repository.
-5. Contributors check the release notes, adding more context and information when needed.  
-6. Publish the release notes.
+The workflow is based on a simple, multi-artifact approach:
 
-### What you'll need
+1. **Change Artifacts:** With each pull request, a developer adds a YAML file
+(`change-artifact.yaml`) describing their specific change.
+2. **Release Artifacts:** For each release, a release manager creates a YAML file
+(`release-artifact.yaml`) that lists the change artifacts included in that release.
+3. **Automation:** A GitHub Action is triggered when a release artifact is committed.
+It reads the listed change artifacts, processes them through a template,
+and automatically generates the release notes and opens a PR to add it to the repository.
+4. Review and merge the PR.
 
-In your repository, you will need the following materials:
+There is an alternative script available for using a single YAML file for both
+Change Artifacts and Release Artifacts.
 
-* Change artifacts
-* Release artifact(s) in a dedicated directory
-* Jinja2 template for release notes
-* A YAML file with information common to all artifacts (`common.yaml`)
+## File Structure
 
-You will also need to call the reusable workflow in your repository:
+The key components are:
+
+* `build_release_notes.py` -- The core Python script that powers the release notes generation logic
+* `docs/release-notes` -- main files, including:
+  * `template` -- folder for templates
+  * `artifacts` -- folder for change artifacts
+  * `releases` -- folder for release artifacts
+  * `common.yaml` -- contains information common for all releases of a given product
+  * `***.md` -- generated release notes
+* `single-doc` -- folder for alternative script for combined YAML file.
+
+## Artifact schemas
+
+Your artifacts can have different schemas depending on your project's needs.
+The [default template](docs/release-notes/template/release-template.md.j2)
+and sample artifacts in this repository are designed for Juju charms.
+
+### Template
+
+A customizable Jinja2 template that defines the format and layout
+of the generated release notes.
+
+See
+[docs/release-notes/template/release-template.md.j2](docs/release-notes/template/release-template.md.j2)
+for example.
+
+### Product information
+
+Product information is similar for all release notes of the same product.
+It is stored in the [docs/release-notes/common.yaml](docs/release-notes/common.yaml) file.
+
+File structure:
+
+```yaml
+# Human-readable name of the charm
+charm_name: ""
+
+# Human-readable condition for the release (revision number, date, etc.)
+release_condition: ""
+
+# Boolean to determine whether internal changes will be rendered
+show_internal: false
+```
+
+### Change artifacts
+
+Individual change artifacts must have names with the format `pr####.yaml`, where
+the number represents the pull request associated with the artifact.
+
+File structure:
+
+```yaml
+# Version of the artifact schema
+version_schema: 1
+
+# The key holding the change(s)
+changes:
+  - title: "" # What goes into the header. No punctuation please
+    author: "" # GitHub profile name
+    type: "" # major, minor, deprecated, bugfix, breaking
+    description: "" # Brief description of the chage or fix.
+    urls: # Relevant URLs
+      pr: "" # mandatory link to PR
+      related_doc: "" # optional link to related documentation
+      related_issue: "" # optional link to related issue
+    visibility: public # determines whether artifact should be rendered. Accepted values: public, internal, hidden
+    highlight: false # boolean to determine if change is highlight material (i.e. should be featureed in initial paragraph)
+```
+
+### Release artifacts
+
+Release artifacts must have names with the format `release####.yaml`, where
+the number will be used to tag the output file.
+
+File structure:
+
+```yaml
+# --- Information about release ----
+
+# list of change artifacts included in the release
+included_changes:
+
+# earliest revision included in the release
+earliest_revision:
+
+# latest revision included in the release
+latest_revision:
+
+# earliest date included in the release
+earliest_date:
+
+# latest date included in the release 
+latest_date:
+```
+
+## Instructions
+
+See below guides on how to set up and use the Release notes automation.
+
+### Initial setup
+
+Copy the `docs/release-notes` folder to the root of the source code repo of the product.
+
+Copy the `.github/workflows/ReleaseNotes.yml` file into the GitHub workflows folder
+in the same repository.
+
+Adjust the Jinja2 template and `common.yaml` files for your product needs.
+
+Delete all sample artifacts from `artifacts` and `releases` folders.
+Delete all previously generated release notes (`***.md` files) from the `release-notes` folder.
+
+### Usage
+
+To generate release notes you need to:
+
+* Perform initial setup (see above)
+* Document every meaningful change as a change artifact
+* Create a release artifact
+* Adding release artifact should trigger GitHub workflow and generate release notes
+* Check the PR that was created, adjust if needed, and merge to save final result.
+
+## GitHub workflow
+
+Here is the outline of the workflow used to generate release notes
+and open a PR for adding them to the repository:
 
 ```yaml
 name: 'Create release notes'
@@ -50,86 +173,20 @@ jobs:
       template-file-name: <name of release notes template>
 ```
 
-If you define the workflow like this in your repository, then the workflow
-will trigger when you add a new release artifact to your dedicated directory.
+The `on: push: paths:` parameter triggers the workflow on any change to the path,
+and it should be set to your release artifacts folder.
 
-### Artifact schemas
+## Manual run
 
-Your artifacts can have different schemas depending on your project's needs.
-The following examples are based around charms and were created to be used
-with the Jinja2 template
-[`docs/release-notes/template/release-template.md.j2`](docs/release-notes/template/release-template.md.j2).
+To run the script manually:
 
-Example `common.yaml`:
-
-```yaml
-# Human-readable name of the charm
-charm_name: ""
-
-# Human-readable condition for the release (revision number, date, etc.)
-release_condition: ""
-
-# Boolean to determine whether internal changes will be rendered
-show_internal: false
-```
-
-Individual change artifacts must have names with the format `pr####.yaml`, where
-the number represents the pull request associated with the artifact.
-
-Example of an individual "change" artifact schema:
-
-```yaml
-# Version of the artifact schema
-version_schema: 1
-
-# The key holding the change(s)
-changes:
-  - title: "" # What goes into the header. No punctuation please
-    author: "" # GitHub profile name
-    type: "" # major, minor, deprecated, bugfix, breaking
-    description: "" # Brief description of the chage or fix.
-    urls: # Relevant URLs
-      pr: "" # mandatory link to PR
-      related_doc: "" # optional link to related documentation
-      related_issue: "" # optional link to related issue
-    visibility: public # determines whether artifact should be rendered. Accepted values: public, internal, hidden
-    highlight: false # boolean to determine if change is highlight material (i.e. should be featureed in initial paragraph)
-```
-
-Release artifacts must have names with the format `release####.yaml`, where
-the number will be used to tag the output file.
-
-Example release artifact schema:
-
-```yaml
-# --- Information about release ----
-
-# list of change artifacts included in the release
-included_changes:
-
-# earliest revision included in the release
-earliest_revision:
-
-# latest revision included in the release
-latest_revision:
-
-# earliest date included in the release
-earliest_date:
-
-# latest date included in the release 
-latest_date:
-```
-
-### Python script
-
-You can run the script manually using:
-```
+```bash
 python3 build_release_notes.py
 ```
 
 Usage and options:
 
-```
+```bash
 usage: build_release_notes.py [-h] [-a ARTIFACTDIR] [-o OUTPUTDIR] [-r RELEASEDIR] [-c COMMONFILE] [-t TEMPLATEDIR] [-f TEMPLATEFILE]
 
 Generates release notes based on multiple artifacts
@@ -150,7 +207,8 @@ options:
                         name of release notes template file
 ```
 
-All arguments have default settings:
+The default settings:
+
 * `--artifactdir`: `docs/release-notes/artifacts`
 * `--outputdir`: `docs/release-notes`
 * `--releasedir`: `docs/release-notes/releases`
@@ -158,12 +216,20 @@ All arguments have default settings:
 * `--templatedir`: `docs/release-notes/template`
 * `--templatefile`: `release-template.md.j2`
 
-## Release notes schema -- combined artifact approach
+## Combined artifact approach
 
-There's also some tooling and materials under the `single-doc` directory
-in this repository using a "combined change artifact" approach.
+**Warning**: this feature is experimental.
 
-Schema that was being tested:
+Alternative tooling and materials to use a single input artifact for a release
+are stored in the `single-doc` directory.
+
+In this approach we can use a single input YAML file, that combines:
+
+* product information (`common.yaml`),
+* release artifact(`release####.yaml`),
+* and change artifacts (`pr####.yaml`).
+
+Schema example:
 
 ```yaml
 # Human-readable name of the charm
