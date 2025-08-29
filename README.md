@@ -32,6 +32,7 @@ and automatically generates the release notes and opens a PR to add it to the re
 
 There is an alternative script available for using a single artifact approach:
 a YAML file for Change artifacts, Release artifacts, and product data.
+For more details, see the **Combined artifact approach** section at the end of this README file.
 
 ## File structure
 
@@ -137,36 +138,12 @@ earliest_date:
 latest_date:
 ```
 
-## Instructions
-
-See below guides on how to set up and use the Release notes automation.
-
-### Initial setup
-
-Copy the `docs/release-notes` folder to the root of the source code repo of the product.
-
-Copy the `.github/workflows/ReleaseNotes.yml` file into the GitHub workflows folder
-in the same repository.
-
-Adjust the Jinja2 template and `common.yaml` files for your product needs.
-
-Delete all sample artifacts from `artifacts` and `releases` folders.
-Delete all previously generated release notes (`***.md` files) from the `release-notes` folder.
-
-### Usage
-
-To generate release notes you need to:
-
-* Perform initial setup (see above)
-* Document every meaningful change as a change artifact
-* Create a release artifact
-* Adding release artifact should trigger GitHub workflow and generate release notes
-* Check the PR that was created, adjust if needed, and merge to save final result.
-
 ## GitHub workflow
 
-Here is the outline of the workflow used to generate release notes
-and open a PR for adding them to the repository:
+The best way to use this tooling is to set up a GitHub action in a product's repository
+that refers to this repository's workflow.
+
+Here is an example of the action to add in your product's repository:
 
 ```yaml
 name: 'Create release notes'
@@ -176,7 +153,7 @@ on:
     branches:
       - 'main'
     paths:
-      - '<path to your release notes artifacts>'
+      - '<path to your release artifacts>'
 
 jobs:
   release-notes:
@@ -191,11 +168,38 @@ jobs:
       template-file-name: <name of release notes template>
 ```
 
-The `on: push: paths:` parameter triggers the workflow on any change to the path,
+The `on: push: paths:` parameter triggers the action on any change to the path,
 and it should be set to your release artifacts folder.
+
+## Instructions
+
+This section guides you on how to set up and use the Release notes automation.
+
+### Initial setup
+
+Copy the `docs/release-notes` folder to the `docs` folder of the source code repo of the product.
+
+Adjust the Jinja2 template and `common.yaml` files for your product needs.
+
+Delete all sample artifacts from `artifacts` and `releases` folders.
+Delete all previously generated release notes (`***.md` files) from the `release-notes` folder.
+
+Create a GitHub workflow, according to the **GitHub workflow** section above.
+
+### Generating release notes
+
+To generate release notes you need to:
+
+* Perform initial setup (see above)
+* Make sure to document every meaningful change as a change artifact
+* Create a release artifact and commit it to the repo
+* Adding a release artifact should trigger GitHub workflow
+  that generates release notes and opens a PR
+* Check the PR that was created, adjust if needed, and merge to save final result
 
 ## Manual run
 
+The release notes generation logic is in the Python script file `build_release_notes.py`.
 To run the script manually:
 
 ```bash
@@ -225,7 +229,7 @@ options:
                         name of release notes template file
 ```
 
-The default settings:
+The default settings are:
 
 * `--artifactdir`: `docs/release-notes/artifacts`
 * `--outputdir`: `docs/release-notes`
@@ -236,7 +240,8 @@ The default settings:
 
 ## Combined artifact approach
 
-**Warning**: this feature is experimental.
+> [!WARNING]
+> This feature is experimental.
 
 Alternative tooling and materials to use a single input artifact for a release
 are stored in the `single-doc` directory.
