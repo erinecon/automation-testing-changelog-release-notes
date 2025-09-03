@@ -68,7 +68,7 @@ jobs:
       - name: Open pull request
         uses: canonical/create-pull-request@main
         with:
-          github-token: ${{ secrets.PAT }}
+          github-token: ${{ secrets.RELEASE_NOTES_PAT }}
           commit-message: Add release notes
           branch-name: add-release-notes
           title: Add release notes
