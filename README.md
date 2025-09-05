@@ -186,6 +186,9 @@ Delete all previously generated release notes (`***.md` files) from the `release
 
 Create a GitHub workflow, according to the **GitHub workflow** section above.
 
+Add a [GitHub token](https://docs.github.com/en/actions/tutorials/authenticate-with-github_token) to your repository called `GITHUB_TOKEN`.
+The token needs to have read and write access to code and pull requests.
+
 ### Generating release notes
 
 To generate release notes you need to:
